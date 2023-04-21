@@ -17,13 +17,50 @@ body {
   background-image: linear-gradient(to right, #19334d , #003333);
 }
 
-.clicked {
+.selected {
   margin-top: 23px;
-  margin-left: 13px;
+  /* margin-left: 1vh; */
+  font-size: 1.5rem;
   font-weight: bold;
   display: inline-block;
 
 }
+
+/* Tooltip */
+
+.tool {
+  position: relative;
+  display: inline-block;
+}
+
+.tool span{
+  visibility: hidden;
+  font-size: large;
+  font-weight: lighter;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  top: -5px;
+  left: 105%;
+  width: 39vw;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tool:hover span {
+  visibility: visible;
+}
+
+/* Separate */
+
+
+
+
+
+
+
 
 .options p {
   font-size: 18px;
@@ -39,7 +76,7 @@ body {
 
 .options li {
   display: inline-block;
-  background-color: #333;
+  background-color: #2B3D41;
   color: #fff;
   font-size: 16px;
   padding: 10px 20px;
@@ -50,17 +87,22 @@ body {
 }
 
 .options li:hover {
-  background-color: #2E86AB;
+  background-color: #106b92;
   /* font-weight: bold; */
   font-size: 18px;
   color: #fff;
 }
 
-
-
-.selected {
-  background-color: blue;
+.table{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: #00798C;
+  color: #F7F7F7;
+  padding-left: 13px;
+  border-radius: 5px;
 }
+
 
 .users {
   margin-top: 20px;
@@ -76,7 +118,6 @@ body {
 .user {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: rgb(245,245,245);
   padding-left: 13px;
   padding-top: 19px;
@@ -85,13 +126,10 @@ body {
   margin-bottom: 10px;
 }
 
-
-.user-value {
-  margin: 0;
-  color: rgb(33, 33, 33);
+.user-position{
+  margin-right: 2.3rem;
   font-weight: bold;
 }
-
 
 
 .username {
@@ -105,6 +143,7 @@ body {
   margin-right: 10px;
   color: #333;
   display: inline-block;
+  text-align: center;
 }
 
 .username:hover {
@@ -123,6 +162,14 @@ body {
   color: #FFFFFF;
   background-color: #F24236;
 }
+
+.user-value {
+  margin: 0;
+  margin-left: auto;
+  color: rgb(33, 33, 33);
+  font-weight: bold;
+}
+
 
 .footer {
   background-color: #333;

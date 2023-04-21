@@ -4,11 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Nusab Taha">
+  <title>Toph Leaderboard</title>
+
   <meta name="description"
     content="Toph Leaderboard is a website made by Nusab Taha to see the users with the highest Fastest, Lightest and Shortest submissions in Toph.co online judge.">
   <meta name="keywords" content="NusabTaha Nusab Taha Nusab19 Toph Toph.co">
-  <meta name="author" content="Nusab Taha">
-  <title>Toph Leaderboard</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
   <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -27,15 +28,28 @@
   </div>
 
   <div>
-    <p id="clicked" class="clicked">
+    <p id="selected" class="selected tool">
       Selected: Shortest
+      <span>
+        It shows which data is currently displayed
+      </span>
     </p>
+
   </div>
 
-  <div id="Container">
+  <div>
+    <div class="table">
+      <p style="margin-right: auto;">Position</p>
+      &#149;
+      <span style="margin-right: auto;margin-left: auto;">Username</span>
+      &#149;
+      <p style="margin-right: 10px;margin-left: auto;">Submissions Count</p>
+
+    </div>
     <div class="users">
-      <h2>Loading Data...</h2>
+      <h2 style="text-align: center;">Loading Data...</h2>
       <div class="user">
+        <span class="user-position">1</span>
         <a href="#" class="username">
           Harry
         </a>
@@ -44,6 +58,7 @@
         </p>
       </div>
       <div class="user">
+        <span class="user-position">2</span>
         <a class="username me" href="https://toph.co/u/Nusab19">
           Nusab19
         </a>

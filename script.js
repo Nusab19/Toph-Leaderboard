@@ -1,7 +1,7 @@
 const usersContainer = document.querySelector('.users');
 const options = document.querySelectorAll('.option');
 const footerContainer = document.querySelector('.footer');
-const selected = document.getElementById("clicked")
+const selected = document.getElementById("selected")
 
 let usersData = [];
 
@@ -22,13 +22,13 @@ function updateUsers(option) {
   selected.innerHTML = `Selected: ${option[0].toUpperCase() + option.slice(1, 13)}`
   usersContainer.innerHTML = '';
 
-  // Loop through users and create HTML
   users.forEach(user => {
     cls = "username"
     if (user[0] == "Nusab19")
       cls = "username me"
     const userHTML = `
     <div class="user">
+    <span class="user-position">${users.indexOf(user)+1}</span>
     <a class="${cls}" href="https://toph.co/u/${user[0]}">${user[0]}</a>
     <p class="user-value">${user[1]}</p>
     </div>
@@ -52,7 +52,7 @@ function appendFooter() {
 function selectOption(event) {
   // Remove selected class from all options
 
-  // Add selected class to clicked option
+  // Add selected class to selected option
   const selectedOption = event.target;
   selectedOption.classList.add('selected');
   // Get value of selected option
