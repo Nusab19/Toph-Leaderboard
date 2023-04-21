@@ -1,25 +1,12 @@
-.options {
-  margin-top: 20px;
-}
 body {
   font-family: Ubuntu;
 }
 
-.link {
-  text-decoration: none;
-  border-radius: 7%;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-left: 7px;
-  padding-right: 7px;
-  color: #fff;
-  font-weight: bold;
-  background-image: linear-gradient(to right, #19334d , #003333);
-}
+
+
 
 .selected {
   margin-top: 23px;
-  /* margin-left: 1vh; */
   font-size: 1.5rem;
   font-weight: bold;
   display: inline-block;
@@ -34,7 +21,8 @@ body {
 }
 
 .tool span{
-  visibility: hidden;
+  /* visibility: hidden; */
+  opacity: 0;
   font-size: large;
   font-weight: lighter;
   background-color: rgba(0, 0, 0, 0.7);
@@ -47,20 +35,18 @@ body {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
+  transition: opacity .1s;
 }
 
 .tool:hover span {
-  visibility: visible;
+  opacity: 1;
 }
 
 /* Separate */
 
-
-
-
-
-
-
+.options {
+  margin-top: 20px;
+}
 
 .options p {
   font-size: 18px;
@@ -127,7 +113,11 @@ body {
 }
 
 .user-position{
-  margin-right: 2.3rem;
+  margin-right: 33px;
+  font-weight: bold;
+}
+.user-position-sub{
+  margin-right: 25px;
   font-weight: bold;
 }
 
@@ -172,7 +162,7 @@ body {
 
 
 .footer {
-  background-color: #333;
+  background-color: #4C5F6B;
   color: #fff;
   text-align: center;
   padding: 19px;
@@ -181,6 +171,17 @@ body {
   font-size: 17px;
 }
 
+.link {
+  text-decoration: none;
+  border-radius: 7%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: #fff;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #19334d , #003333);
+}
 
 .footer p {
   margin: 0;
