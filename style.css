@@ -1,0 +1,140 @@
+.options {
+  margin-top: 20px;
+}
+body {
+  font-family: Ubuntu;
+}
+
+.link {
+  text-decoration: none;
+  border-radius: 7%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 7px;
+  padding-right: 7px;
+  color: #fff;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #19334d , #003333);
+}
+
+.clicked {
+  margin-top: 23px;
+  margin-left: 13px;
+  font-weight: bold;
+  display: inline-block;
+
+}
+
+.options p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.options ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.options li {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: font-size .1s;
+}
+
+.options li:hover {
+  background-color: #2E86AB;
+  /* font-weight: bold; */
+  font-size: 18px;
+  color: #fff;
+}
+
+
+
+.selected {
+  background-color: blue;
+}
+
+.users {
+  margin-top: 20px;
+}
+
+.user {
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(245,245,245);
+  padding-left: 13px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+.user-value {
+  margin: 0;
+  color: rgb(33, 33, 33);
+  font-weight: bold;
+}
+
+
+
+.username {
+  text-decoration: none;
+  background-color: rgb(222, 222, 222);
+  border-radius: 10%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-right: 10px;
+  color: #333;
+  display: inline-block;
+}
+
+.username:hover {
+  color: #FFFFFF;
+  background-color: #495159;
+}
+
+.me {
+  background-color: #1A5E63;
+  font-weight: bold;
+  color: #EEEEEE;
+  font-size: 17px;
+}
+
+.me:hover{
+  color: #FFFFFF;
+  background-color: #F24236;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 19px;
+  border-radius: 2.3vh;
+  margin-top: 33px;
+  font-size: 17px;
+}
+
+
+.footer p {
+  margin: 0;
+}
