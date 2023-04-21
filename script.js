@@ -19,7 +19,7 @@ function loadDataFromApi() {
 }
 
 function loadData() {
-  fetch("final.json")
+  fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
       usersData = data;
