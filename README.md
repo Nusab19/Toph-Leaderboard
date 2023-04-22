@@ -6,6 +6,17 @@
 <br>
  Also, it shows all the unsolved problems in Toph. Go and solve them if you can! 👀
 </h3>
+ <h3>This is a leaderboard of one the toph's problems</h3>
+ <p align="center">
+  <img height="333px" src="https://github.com/Nusab19/Toph-Leaderboard/raw/main/assets/images/ex5.png" alt="Toph Submissions"/>
+ </p>
+ <h3>I gathered the information of all the problems and showed them in one place. 
+  <br>
+  The data is updated every 10 minutes to get the latest data.
+ 
+ </h3>
+ 
+ 
 <p align="center">
   <h1>Fastest</h1>
     <img height="333px" src="https://github.com/Nusab19/Toph-Leaderboard/raw/main/assets/images/ex1.png" alt="Fastest Toph Submissions"/>
