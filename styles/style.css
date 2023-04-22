@@ -79,6 +79,11 @@ body {
   color: #fff;
 }
 
+ul .unsolved{
+  background-color: #006969;
+}
+
+
 .table{
   display: flex;
   align-items: center;
@@ -112,12 +117,7 @@ body {
   margin-bottom: 10px;
 }
 
-.user-position{
-  margin-right: 33px;
-  font-weight: bold;
-}
-.user-position-sub{
-  margin-right: 25px;
+.user span{
   font-weight: bold;
 }
 
