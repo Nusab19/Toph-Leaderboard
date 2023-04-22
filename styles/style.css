@@ -36,6 +36,7 @@ body {
   position: absolute;
   z-index: 1;
   transition: opacity .1s;
+  user-select: none;
 }
 
 .tool:hover span {
@@ -52,12 +53,14 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+user-select: none;
 }
 
 .options ul {
   list-style: none;
   margin: 0;
   padding: 0;
+user-select: none;
 }
 
 .options li {
@@ -70,6 +73,7 @@ body {
   margin-right: 10px;
   cursor: pointer;
   transition: font-size .1s;
+  margin-bottom: 10px;
 }
 
 .options li:hover {
@@ -92,6 +96,8 @@ ul .unsolved{
   color: #F7F7F7;
   padding-left: 13px;
   border-radius: 5px;
+user-select: none;
+font-weight: bold;
 }
 
 
@@ -183,6 +189,3 @@ ul .unsolved{
   background-image: linear-gradient(to right, #19334d , #003333);
 }
 
-.footer p {
-  margin: 0;
-}
