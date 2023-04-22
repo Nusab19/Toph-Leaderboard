@@ -36,7 +36,7 @@
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 
-<h3>It uses an API in the backend which is also made by me ( <i>why won't it be, right?</i> ).
+<h3>It uses an API in the backend which is also made by me ( <i>why won't it be, right?</i> 😉 😌 ).
 <br>
 But if I make that open-source, people may misuse the algorighm to DDoS Toph.co server. <br>
 So, it's better to keep the source code hidden. But you can use the API I made.
