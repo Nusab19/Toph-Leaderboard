@@ -86,9 +86,9 @@ function updateUsers(option) {
       let margin = 33;
       const position = unsolved.indexOf(url) + 1;
       let index = position;
-      while (index/10>=1){
-        margin-=6;
-        index/=10;
+      while (index / 10 >= 1) {
+        margin -= 8;
+        index /= 10;
       }
       USERS.insertAdjacentHTML(
         "beforeend",
@@ -113,9 +113,9 @@ function updateUsers(option) {
     let margin = 33;
     const position = users.indexOf(user) + 1;
     let index = position;
-    while (index/10>=1){
-      margin-=6;
-      index/=10;
+    while (index / 10 >= 1) {
+      margin -= 8;
+      index /= 10;
     }
     if (user[0] == "Nusab19") cls += " me";
     const userHTML = `
