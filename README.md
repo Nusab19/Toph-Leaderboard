@@ -22,6 +22,6 @@
 <img height="333px" src="https://graph.org/file/cede2c749de2cbea241ca.png"
   alt="Shortest Toph Submissions" />
 <h2>Unsolved Problems</h2>
-<img height="333px" src="https://graph.org/file/57e111d334be8c6d111f1.png
+<img height="333px" src="https://graph.org/file/57e111d334be8c6d111f1.png"
   alt="Unsolved Problems" />
 </p>
