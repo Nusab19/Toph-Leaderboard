@@ -17,6 +17,7 @@
  </h3>
  
  
+ <h1>Some ScreenShots of the website</h1>
 <p align="center">
   <h1>Fastest</h1>
     <img height="333px" src="https://github.com/Nusab19/Toph-Leaderboard/raw/main/assets/images/ex1.png" alt="Fastest Toph Submissions"/>
