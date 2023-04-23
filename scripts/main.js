@@ -55,9 +55,9 @@ function loadUnsolved() {
 }
 
 const TABLE_HEAD = document.querySelector(".table");
-const TABLE_HEAD_TEXT = `<p style="margin-right: auto;">Position</p>
+const TABLE_HEAD_TEXT = `<p style="margin-right: 3%;">Position</p>
 &#149;
-<span style="margin-right: auto;margin-left: auto;">Username</span>
+<span style="margin-right: auto;margin-left: 3%;">Username</span>
 &#149;
 <p style="margin-right: 10px;margin-left: auto;">Submissions Count</p>`;
 
