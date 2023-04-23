@@ -2,6 +2,8 @@ body {
   font-family: Ubuntu, Arial, Helvetica, sans-serif;
 }
 
+/* Separate */
+
 .selected {
   margin-top: 23px;
   font-size: 1.5rem;
@@ -24,6 +26,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   left: 105%;
+  top: -10px;
   width: 35vw;
   text-align: center;
   border-radius: 6px;
@@ -169,11 +172,10 @@ ul .unsolved {
   font-size: 17px;
 }
 
-.footer p{
+.footer p {
   margin: 0;
   line-height: 33px;
 }
-
 
 .link {
   margin-top: 20px;
@@ -183,10 +185,10 @@ ul .unsolved {
   color: #000;
   background-color: #f7f7f7;
   font-weight: bold;
-  transition: color .1s, background-color .1s;
+  transition: color 0.1s, background-color 0.1s;
 }
 
-.link:hover{
+.link:hover {
   background-color: #f24236;
   color: #f7f7f7;
 }

@@ -10,76 +10,97 @@
   <meta name="description"
     content="Toph Leaderboard is a website made by Nusab Taha to see the users with the highest Fastest, Lightest and Shortest submissions in Toph.co online judge.">
   <meta name="keywords" content="NusabTaha Nusab Taha Nusab19 Toph Toph.co">
-  <!-- CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nusab19/Toph-Leaderboard/styles/main.css">
   <!-- Local -->
-  <!-- <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu">
 
 </head>
 
 <body>
-  <div class="options">
-    <p>
-      Select an option:
-    </p>
-    <ul>
-      <li class="option">Fastest</li>
-      <li class="option">Lightest</li>
-      <li class="option">Shortest</li>
-      <li class="unsolved option">Unsolved</li>
-    </ul>
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Toph Leaderboard
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <div class="nav-links">
+      <a href="/s/easy-problems" target="_blank">Easy Problems</a>
+      <a href="http://github.com/Nusab19/Toph-Leaderboard" target="_blank">Github Repo</a>
+    </div>
   </div>
 
-  <div>
-    <p id="selected" class="selected tool">
-      Selected: Shortest
-      <span>
-        It shows which data is currently displayed
-      </span>
-    </p>
-
-  </div>
-
-  <div>
-    <div class="table">
-      <p style="margin-right: auto">Position</p>
-      &#149;
-      <span style="margin-right: auto;margin-left: auto;">Username</span>
-      &#149;
-      <p style="margin-right: 10px;margin-left: auto;">Submissions Count</p>
-
-    </div>
-    <div class="users">
-      <h2 style="text-align: center;">Loading Data...</h2>
-      <div class="user">
-        <span class="user-position" style="margin-right: 33px;">1</span>
-        <a href="#" class="username">
-          Harry
-        </a>
-        <p class="user-value">
-          19
-        </p>
-      </div>
-      <div class="user">
-        <span class="user-position" style="margin-right: 33px;">2</span>
-        <a class="username me" href="https://toph.co/u/Nusab19">
-          Nusab19
-        </a>
-        <p class="user-value">
-          13
-        </p>
-      </div>
-
-    </div>
-    
-    <div class="footer">
+  <div style="margin: 11px">
+    <div class="options">
       <p>
-        All rights reserved by <span><a class="link" href="https://github.com/Nusab19">Nusab Taha</a></span>
+        Select an option:
       </p>
+      <ul>
+        <li class="option">Fastest</li>
+        <li class="option">Lightest</li>
+        <li class="option">Shortest</li>
+        <li class="unsolved option">Unsolved</li>
+      </ul>
     </div>
-    <!-- <script src="scripts/main.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/gh/Nusab19/Toph-Leaderboard/scripts/main.js"></script>
+
+    <div>
+      <p id="selected" class="selected tool">
+        Selected: Shortest
+        <span>
+          It shows which data is currently displayed
+        </span>
+      </p>
+
+    </div>
+
+    <div>
+      <div class="table">
+        <p style="margin-right: auto">Position</p>
+        &#149;
+        <span style="margin-right: auto;margin-left: auto;">Username</span>
+        &#149;
+        <p style="margin-right: 10px;margin-left: auto;">Submissions Count</p>
+
+      </div>
+      <div class="users">
+        <h2 style="text-align: center;">Loading Data...</h2>
+        <div class="user">
+          <span class="user-position" style="margin-right: 33px;">1</span>
+          <a href="#" class="username">
+            Harry
+          </a>
+          <p class="user-value">
+            19
+          </p>
+        </div>
+        <div class="user">
+          <span class="user-position" style="margin-right: 33px;">2</span>
+          <a class="username me" href="https://toph.co/u/Nusab19">
+            Nusab19
+          </a>
+          <p class="user-value">
+            13
+          </p>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <p>
+          All rights reserved by <span><a class="link" href="https://github.com/Nusab19">Nusab Taha</a></span>
+        </p>
+      </div>
+    </div>
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>

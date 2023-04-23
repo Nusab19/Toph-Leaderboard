@@ -77,9 +77,9 @@ function updateUsers(option) {
   </span>`.trim();
 
   if (option == "unsolved") {
-    TABLE_HEAD.innerHTML = `<p style="margin-right: 5%;">Position</p>
+    TABLE_HEAD.innerHTML = `<p style="margin-right: 3%;">Position</p>
     &#149;
-    <span style="margin-left: 5%;">Problem Name</span>`;
+    <span style="margin-left: 3%;">Problem Name</span>`;
     USERS.innerHTML = "";
     unsolved.forEach((url) => {
       const name = capitalizeWords(url.split("/")[4]);

@@ -10,7 +10,6 @@ function loadUnsolvedFromApi() {
     .then((response) => response.json())
     .then((jsonData) => {
       easyProblems = jsonData["data"];
-      //   console.log(easyProblems);
       updateUsers();
     })
     .catch((error) => {
@@ -40,9 +39,6 @@ function capitalizeWords(str) {
 
 function updateUsers() {
   USERS.innerHTML = "";
-  TABLE_HEAD.innerHTML = `<p style="margin-right: 5%;">Position</p>
-    &#149;
-    <span style="margin-left: 5%;">Problem Name</span>`;
   easyProblems.forEach((item) => {
     const ratio = item[0];
     const name = item[1];
