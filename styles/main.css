@@ -26,7 +26,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   left: 105%;
-  top: -10px;
+  bottom: -1px;
   width: 35vw;
   text-align: center;
   border-radius: 6px;
