@@ -64,7 +64,7 @@ body {
 
 .options li {
   display: inline-block;
-  background-color: #2b3d41;
+  background-color: #2f353b;
   color: #fff;
   font-size: 16px;
   padding: 10px 20px;
@@ -73,16 +73,17 @@ body {
   cursor: pointer;
   transition: font-size 0.23s;
   margin-bottom: 10px;
+  justify-content: space-evenly;
 }
 
 .options li:hover {
-  background-color: #106b92;
-  font-size: 18px;
+  background-color: #3598dc;
+  font-size: 17px;
   color: #fff;
 }
 
 ul .unsolved {
-  background-color: #006969;
+  background-color: #e35b5a;
 }
 
 .table {
@@ -124,32 +125,32 @@ ul .unsolved {
 
 .username {
   text-decoration: none;
-  background-color: rgb(222, 222, 222);
+  background-color: #e7ecf1;
   border-radius: 10%;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 7px;
   padding-right: 7px;
   margin-right: 10px;
-  color: #333;
+  color: #2f353b;
   display: inline-block;
   text-align: center;
 }
 
 .username:hover {
   color: #ffffff;
-  background-color: #495159;
+  background-color: #2f353b;
 }
 
 .me {
-  background-color: #1a5e63;
+  background-color: #22aa71;
   font-weight: bold;
   color: #eeeeee;
   font-size: 17px;
 }
 
 .me:hover {
-  color: #ffffff;
+  color: #f9f9f9;
   background-color: #f24236;
 }
 

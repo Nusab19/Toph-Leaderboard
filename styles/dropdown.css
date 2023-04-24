@@ -9,7 +9,7 @@ body {
 .nav {
   height: 50px;
   width: 100%;
-  background-color: #4b5358;
+  background-color: #22313f;
   position: relative;
 }
 
@@ -71,7 +71,7 @@ body {
   }
   .nav > .nav-btn > label:hover,
   .nav #nav-check:checked ~ .nav-btn > label {
-    background-color: #4b5358;
+    background-color: #1b2732;
   }
   .nav > .nav-btn > label > span {
     display: block;
@@ -83,7 +83,7 @@ body {
     position: absolute;
     display: block;
     width: 100%;
-    background-color: #2f3437;
+    background-color: #1b2732;
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
@@ -101,13 +101,17 @@ body {
     height: 0px;
   }
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(23vh);
+    height: 25vh;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 13;
   }
+  .nav > #nav-check:checked ~ .nav-links::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
 
   .nav > #nav-check:checked ~ .nav-btn > label {
-    background-color: #232729;
+    background-color: #121a21;
   }
 }
