@@ -201,10 +201,13 @@ ul .unsolved {
 }
 
 @media (max-width: 600px) {
-  .username, .user span, .user-value {
+  .username,
+  .user span,
+  .user-value,
+  .footer {
     font-size: 13px;
   }
-  .table{
+  .table {
     font-size: 14px;
   }
 }
