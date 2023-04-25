@@ -121,6 +121,7 @@ ul .unsolved {
 
 .user span {
   font-weight: bold;
+  color: #2f353b;
 }
 
 .username {
@@ -135,6 +136,11 @@ ul .unsolved {
   color: #2f353b;
   display: inline-block;
   text-align: center;
+}
+
+.username:visited {
+  color: #22aa71;
+  font-weight: bold;
 }
 
 .username:hover {
@@ -157,7 +163,7 @@ ul .unsolved {
 .user-value {
   margin: 0;
   margin-left: auto;
-  color: rgb(33, 33, 33);
+  color: #2f353b;
   font-weight: bold;
 }
 
@@ -192,4 +198,13 @@ ul .unsolved {
 .link:hover {
   background-color: #f24236;
   color: #f7f7f7;
+}
+
+@media (max-width: 600px) {
+  .username, .user span, .user-value {
+    font-size: 13px;
+  }
+  .table{
+    font-size: 14px;
+  }
 }

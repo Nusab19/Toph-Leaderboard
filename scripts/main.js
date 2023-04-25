@@ -121,7 +121,7 @@ function updateUsers(option) {
     const userHTML = `
     <div class="user">
     <span style="margin-right:${margin}px">${position}</span>
-    <a class="${cls}" href="https://toph.co/u/${user[0]}">${user[0]}</a>
+    <a class="${cls}" target=_blank href="https://toph.co/u/${user[0]}">${user[0]}</a>
     <p class="user-value">${user[1]}</p>
     </div>
     `;

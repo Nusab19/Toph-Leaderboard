@@ -54,7 +54,7 @@ function updateUsers() {
       "beforeend",
       `<div class="user">
         <span style="margin-right:${margin}px">${position}</span>
-        <a class="username" href="https://toph.co/p/${name}">${capName}</a>
+        <a class="username" target=_blank href="https://toph.co/p/${name}">${capName}</a>
         <span style="margin-right: 2%;margin-left: auto">${ratio}%</span>
         </div>`
     );
