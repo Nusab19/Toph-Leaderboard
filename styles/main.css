@@ -214,4 +214,7 @@ ul .unsolved {
   .table {
     font-size: 14px;
   }
+  .tool span{
+    bottom: -33px;
+  }
 }
