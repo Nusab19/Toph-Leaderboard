@@ -3,13 +3,14 @@ const OPTIONS = document.querySelectorAll(".option");
 const FOOTER = document.querySelector(".footer");
 const SELECTED = document.getElementById("selected");
 
-const API_URL = "https://toph-api.onrender.com/";
+// const API_URL = "https://toph-api.onrender.com";
+const API_URL = "https://tidyfractalmap.namewillbehere.repl.co";
 
 let usersData = [];
 let unsolved = [];
 
 function loadDataFromApi() {
-  fetch(API_URL + "getData?limit=13")
+  fetch(`${API_URL}/getData`)
     .then((response) => response.json())
     .then((jsonData) => {
       usersData = jsonData["data"];
@@ -17,35 +18,35 @@ function loadDataFromApi() {
       loadUnsolvedFromApi();
     })
     .catch((error) => {
-      console.error("Failed to load data:", error);
+      console.error("Failed to load Data. Error:\n", error);
       loadData();
     });
 }
 
 function loadData() {
-  fetch("assets/data.json")
+  fetch("assets/Data/allProblems.json")
     .then((response) => response.json())
     .then((data) => {
       usersData = data;
-      updateUsers("shortest");
+      updateUsers("shortest"); // default option to show
     })
     .catch((error) => console.error(error));
 }
 
 function loadUnsolvedFromApi() {
-  fetch(API_URL + "unsolved")
+  fetch(`${API_URL}/unsolved`)
     .then((response) => response.json())
     .then((jsonData) => {
       unsolved = jsonData["data"];
     })
     .catch((error) => {
-      console.error("Failed to load data:", error);
+      console.error("Failed to load unsolved problems data. Error:\n", error);
       loadUnsolved();
     });
 }
 
 function loadUnsolved() {
-  fetch("assets/unsolved.json")
+  fetch("assets/Data/unsolved.json")
     .then((response) => response.json())
     .then((data) => {
       unsolved = data;
@@ -71,10 +72,7 @@ function capitalizeWords(str) {
 
 function updateUsers(option) {
   SELECTED.innerHTML = `
-  Selected: ${option[0].toUpperCase() + option.slice(1)}
-  <span>
-  It shows which data is currently displayed
-  </span>`.trim();
+  Selected: ${option[0].toUpperCase() + option.slice(1)}`.trim();
 
   if (option == "unsolved") {
     TABLE_HEAD.innerHTML = `<p style="margin-right: 3%;">Position</p>

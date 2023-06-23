@@ -13,13 +13,12 @@ body {
 
 /* Tooltip */
 
-.tool {
+/* .tool {
   position: relative;
   display: inline-block;
 }
 
 .tool span {
-  /* visibility: hidden; */
   opacity: 0;
   font-size: large;
   font-weight: lighter;
@@ -38,9 +37,8 @@ body {
 }
 
 .tool:hover span {
-  /* visibility: visible; */
   opacity: 1;
-}
+} */
 
 /* Separate */
 
