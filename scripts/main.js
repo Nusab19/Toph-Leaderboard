@@ -3,8 +3,7 @@ const OPTIONS = document.querySelectorAll(".option");
 const FOOTER = document.querySelector(".footer");
 const SELECTED = document.getElementById("selected");
 
-// const API_URL = "https://toph-api.onrender.com";
-const API_URL = "https://tidyfractalmap.namewillbehere.repl.co";
+const API_URL = "https://toph-api.onrender.com";
 
 let usersData = [];
 let unsolved = [];

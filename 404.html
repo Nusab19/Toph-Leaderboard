@@ -1,7 +1,64 @@
-<script>
-  let currentUrl = window.location.href;
-  console.log(currentUrl);
-  let urlParts = currentUrl.split('/');
-  console.log(urlParts[3] == 'u');
-  console.log(urlParts)
-</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>User Panel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/user_panel.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="user-box">
+      <a href=""><img class="user-image"
+          src="https://uploads.toph.co/qhTZfR-h-t_CHqKUlvp4NitMk8t60GaQ7SGrskmYUEg/resize:fill:450:450:0/gravity:sm/czM6Ly90b3BoLXBsYXRmb3JtLXVwbG9hZHMvYXZhdGFycy9mMzliNjhmNjA3OTg0OWY5ZmFjZTVmMTNjNjEyMmFjNzJkZTkwMTE4OTM5ODJhNzM1YjlhNzY0MjUzMzM0OWUyNzU5ZDBiMGRhNGJjZDQ5YTYyOTliMTQzNTM5YzUyNzY4ZjhkYmUwMWI1NGI4YWI0ZTRlNTNmNmQzZDZkYTI2YS5qcGc"></a>
+
+      <h2 id="profilename">Kuddus Ali</h2>
+      
+      <ul class="stats">
+        <li>Fastest: 0</li>
+        <li>Lightest: 0</li>
+        <li>Shortest: 0</li>
+      </ul>
+    </div>
+
+    <div class="data">
+      <div class="options">
+        <p>
+          Select an option:
+        </p>
+        <ul>
+          <li class="option">Fastest</li>
+          <li class="option">Lightest</li>
+          <li class="option">Shortest</li>
+        </ul>
+      </div>
+
+      <h3 id="selected">Loading Data...</h3>
+
+      <div class="table">
+        <p style="margin-left: 3%">URLs</p>
+
+      </div>
+      <div class="users">
+        <!-- <h2 style="text-align: center;">Loading Data...</h2> -->
+        <div class="user">
+          <span style="margin-right: 33px">1</span>
+          <a class="username" href="https://toph.co/p/add-them-up">Add-Them-Up</a>
+        </div>
+        <div class="user">
+          <span style="margin-right: 33px">2</span>
+          <a class="username" href="https://toph.co/p/copycat">CopyCat</a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="scripts/user_panel.js"></script>
+</body>
+
+</html>
