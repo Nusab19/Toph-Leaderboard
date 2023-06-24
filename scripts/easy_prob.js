@@ -10,23 +10,13 @@ function loadUnsolvedFromApi() {
     .then((response) => response.json())
     .then((jsonData) => {
       easyProblems = jsonData["data"];
+      easyProblems.reverse();
       updateUsers();
+
     })
     .catch((error) => {
       console.error("Failed to load data:", error);
-      loadUnsolved();
-      updateUsers();
     });
-}
-
-function loadUnsolved() {
-  fetch("assets/easyProblems.json")
-    .then((response) => response.json())
-    .then((data) => {
-      easyProblems = data;
-      updateUsers("shortest");
-    })
-    .catch((error) => console.error(error));
 }
 
 function capitalizeWords(str) {
