@@ -47,7 +47,7 @@ async function loadUnsolved() {
     const response = await fetch("assets/Data/unsolved.json");
     const data = await response.json();
     unsolved = data;
-    updateUsers("shortest");
+
   } catch (error) {
     console.error(error);
   }
@@ -78,7 +78,7 @@ function updateUsers(option) {
     <span style="margin-left: 3%;">Problem Name</span>`;
     USERS.innerHTML = "";
     unsolved.forEach((url) => {
-      const name = capitalizeWords(url.split("/")[4]);
+      const name = capitalizeWords(url);
       let margin = 33;
       const position = unsolved.indexOf(url) + 1;
       let index = position;
@@ -129,7 +129,6 @@ function selectOption(event) {
   const selectedOption = event.target;
   selectedOption.classList.add("selected");
   const selectedValue = selectedOption.dataset.value;
-  console.log(selectedValue);
 }
 
 OPTIONS.forEach((option) => {
@@ -139,5 +138,4 @@ OPTIONS.forEach((option) => {
   });
 });
 
-// loadData();
 loadDataFromApi();
