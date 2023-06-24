@@ -110,7 +110,7 @@ function updateUsers(option) {
     const userHTML = `
       <div class="user">
           <span style="margin-right: ${margin}px">${position}</span>
-          <a class="username" href="https://toph.co/p/${user} target="_blank">${name}</a>
+          <a class="username" target="_blank" href="https://toph.co/p/${user}>${name}</a>
         </div>
       `;
     USERS.insertAdjacentHTML("beforeend", userHTML);
