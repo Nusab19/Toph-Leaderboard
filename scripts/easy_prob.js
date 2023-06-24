@@ -40,8 +40,8 @@ function capitalizeWords(str) {
 function updateUsers() {
   USERS.innerHTML = "";
   easyProblems.forEach((item) => {
-    const ratio = item[0];
-    const name = item[1];
+    // const ratio = item[0];
+    const name = item
     const capName = capitalizeWords(name);
     let margin = 33;
     const position = easyProblems.indexOf(item) + 1;
@@ -55,7 +55,6 @@ function updateUsers() {
       `<div class="user">
         <span style="margin-right:${margin}px">${position}</span>
         <a class="username" target=_blank href="https://toph.co/p/${name}">${capName}</a>
-        <span style="margin-right: 2%;margin-left: auto">${ratio}%</span>
         </div>`
     );
   });
