@@ -7,51 +7,50 @@ const API_URL = "https://toph-api.onrender.com";
 
 let usersData = [];
 let unsolved = [];
-
-function loadDataFromApi() {
-  fetch(`${API_URL}/getData`)
-    .then((response) => response.json())
-    .then((jsonData) => {
-      usersData = jsonData["data"];
-      updateUsers("shortest");
-      loadUnsolvedFromApi();
-    })
-    .catch((error) => {
-      console.error("Failed to load Data. Error:\n", error);
-      loadData();
-    });
+async function loadDataFromApi() {
+  try {
+    const response = await fetch(`${API_URL}/getData`);
+    const jsonData = await response.json();
+    usersData = jsonData["data"];
+    updateUsers("shortest");
+    await loadUnsolvedFromApi();
+  } catch (error) {
+    console.error("Failed to load Data. Error:\n", error);
+    loadData();
+  }
 }
 
-function loadData() {
-  fetch("assets/Data/allProblems.json")
-    .then((response) => response.json())
-    .then((data) => {
-      usersData = data;
-      updateUsers("shortest"); // default option to show
-    })
-    .catch((error) => console.error(error));
+async function loadData() {
+  try {
+    const response = await fetch("assets/Data/allProblems.json");
+    const data = await response.json();
+    usersData = data;
+    updateUsers("shortest"); // default option to show
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-function loadUnsolvedFromApi() {
-  fetch(`${API_URL}/unsolved`)
-    .then((response) => response.json())
-    .then((jsonData) => {
-      unsolved = jsonData["data"];
-    })
-    .catch((error) => {
-      console.error("Failed to load unsolved problems data. Error:\n", error);
-      loadUnsolved();
-    });
+async function loadUnsolvedFromApi() {
+  try {
+    const response = await fetch(`${API_URL}/unsolved`);
+    const jsonData = await response.json();
+    unsolved = jsonData["data"];
+  } catch (error) {
+    console.error("Failed to load unsolved problems data. Error:\n", error);
+    loadUnsolved();
+  }
 }
 
-function loadUnsolved() {
-  fetch("assets/Data/unsolved.json")
-    .then((response) => response.json())
-    .then((data) => {
-      unsolved = data;
-      updateUsers("shortest");
-    })
-    .catch((error) => console.error(error));
+async function loadUnsolved() {
+  try {
+    const response = await fetch("assets/Data/unsolved.json");
+    const data = await response.json();
+    unsolved = data;
+    updateUsers("shortest");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 const TABLE_HEAD = document.querySelector(".table");

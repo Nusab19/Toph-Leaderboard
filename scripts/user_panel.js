@@ -12,7 +12,8 @@ const SHOWING = document.getElementById("selected");
 const STATS = document.querySelector(".stats");
 const API_URL = "https://toph-api.onrender.com";
 const PROFILE_NAME = document.getElementById("profilename")
-// const USERNAME = "Nusab19";
+USERNAME = "Nusab19";
+
 let usersData = [];
 
 async function loadDataFromApi() {
@@ -27,6 +28,21 @@ async function loadDataFromApi() {
     //   loadData();
   }
 }
+
+async function loadData() {
+    try {
+        const response = await fetch(`${API_URL}/user?name=${USERNAME}`);
+        const jsonData = await response.json();
+        usersData = jsonData["data"];
+    updateStats();
+    updateUsers("shortest");
+  } catch (error) {
+    console.error("Failed to load Data. Error:\n", error);
+    //   loadData();
+  }
+}
+
+
 loadDataFromApi();
 
 function updateStats() {
@@ -35,8 +51,6 @@ function updateStats() {
     <li>Lightest: ${usersData["lightest"].length}</li>
     <li>Shortest: ${usersData["shortest"].length}</li>
     `.trim();
-
-    PROFILE_NAME.innerHTML = USERNAME;
 }
 
 function capitalizeWords(str) {
@@ -49,7 +63,7 @@ function capitalizeWords(str) {
 
 function updateUsers(option) {
   SHOWING.innerHTML = `
-    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones`.trim();
+    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones of ${USERNAME}`.trim();
 
   USERS.innerHTML = "";
   const users = usersData[option];

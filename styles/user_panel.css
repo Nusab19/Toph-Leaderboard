@@ -1,11 +1,10 @@
-.container {
-  display: flex;
-  gap: 1rem;
+body {
   font-family: Ubuntu, Arial, Helvetica, sans-serif;
 }
+
 .user-box {
   width: 300px;
-  height: 330px;
+  height: 370px;
   border: 1px solid black;
   border-radius: 10px;
   text-align: center;
@@ -13,10 +12,6 @@
 
 .user-image {
   margin-top: 10px;
-  width: 80%;
-}
-
-.data{
   width: 80%;
 }
 
@@ -28,8 +23,7 @@
 }
 .stats li{
   display: inline-block;
-  background-color: #345995;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   padding: 8px 7px;
   border-radius: 5px;
@@ -38,6 +32,7 @@
   margin-bottom: 10px;
   justify-content: space-evenly;
 }
+
 /* Sep  */
 
 .options {
