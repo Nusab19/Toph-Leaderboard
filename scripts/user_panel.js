@@ -12,7 +12,7 @@ const SHOWING = document.getElementById("selected");
 const STATS = document.querySelector(".stats");
 const API_URL = "https://toph-api.onrender.com";
 const PROFILE_NAME = document.getElementById("profilename")
-USERNAME = "Nusab19";
+// USERNAME = "Nusab19";
 
 let usersData = [];
 
