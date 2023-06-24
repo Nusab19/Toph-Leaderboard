@@ -60,19 +60,20 @@ function updateStats() {
   const lt=usersData["lightest"].length;
   const st=usersData["shortest"].length;
 
-  const data={
-    ft:"fastest",
-    lt:"lightest",
-    st:"shortest"
-  }
   STATS.innerHTML = `
     <li>Fastest:  ${ft}</li>
     <li>Lightest: ${lt}</li>
     <li>Shortest: ${st}</li>
     `.trim();
-  const max = Math.max(ft, lt, st);
-  console.log(data[max])
-  updateUsers(data[max]);
+  
+  if(ft>0){
+    updateUsers("fastest");
+  }else if(lt > 0){
+    updateUsers("lightest");
+  }
+  else{
+    updateUsers("shortest");
+  }
 }
 
 function capitalizeWords(str) {
