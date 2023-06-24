@@ -32,7 +32,7 @@ async function loadDataFromApi() {
         const jsonData = await response.json();
         usersData = jsonData["data"];
     updateStats();
-    updateUsers("shortest");
+    
   } catch (error) {
     console.error("Failed to load Data. Error:\n", error);
     //   loadData();
@@ -56,11 +56,23 @@ async function loadData() {
 loadDataFromApi();
 
 function updateStats() {
+  const ft=usersData["fastest"].length;
+  const lt=usersData["lightest"].length;
+  const st=usersData["shortest"].length;
+
+  const data={
+    ft:"fastest",
+    lt:"lightest",
+    st:"shortest"
+  }
   STATS.innerHTML = `
-    <li>Fastest:  ${usersData["fastest"].length}</li>
-    <li>Lightest: ${usersData["lightest"].length}</li>
-    <li>Shortest: ${usersData["shortest"].length}</li>
+    <li>Fastest:  ${ft}</li>
+    <li>Lightest: ${lt}</li>
+    <li>Shortest: ${st}</li>
     `.trim();
+  const max = Math.max(ft, lt, st);
+  console.log(data[max])
+  updateUsers(data[max]);
 }
 
 function capitalizeWords(str) {
