@@ -80,6 +80,7 @@ function updateUsers(option) {
     unsolved.forEach((url) => {
       const name = capitalizeWords(url);
       let margin = 33;
+      console.log(url)
       const position = unsolved.indexOf(url) + 1;
       let index = position;
       while (index / 10 >= 1) {
@@ -90,7 +91,7 @@ function updateUsers(option) {
         "beforeend",
         `<div class="user">
         <span style="margin-right:${margin}px">${position}</span>
-        <a class="username" href="${url}">${name}</a></div>`
+        <a class="username" href="https://toph.co/p/${url}">${name}</a></div>`
       );
     });
 
