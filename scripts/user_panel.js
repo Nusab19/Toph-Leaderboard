@@ -86,7 +86,7 @@ function capitalizeWords(str) {
 
 function updateUsers(option) {
   SHOWING.innerHTML = `
-    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones of <a href="https://toph.co/u/${USERNAME}">@${USERNAME}</a>`.trim();
+    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones of <a class="username" href="https://toph.co/u/${USERNAME}">@${USERNAME}</a>`.trim();
 
   USERS.innerHTML = "";
   const users = usersData[option];
