@@ -14,7 +14,7 @@ else{
 
 
 let USERNAME = currentUrl[4]
-
+document.title = `${USERNAME}`
 const USERS = document.querySelector(".users");
 const OPTIONS = document.querySelectorAll(".option");
 const FOOTER = document.querySelector(".footer");
@@ -86,7 +86,7 @@ function capitalizeWords(str) {
 
 function updateUsers(option) {
   SHOWING.innerHTML = `
-    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones of @${USERNAME}`.trim();
+    Showing \`${option[0].toUpperCase() + option.slice(1)}\` Ones of <a href="https://toph.co/u/${USERNAME}">@${USERNAME}</a>`.trim();
 
   USERS.innerHTML = "";
   const users = usersData[option];
