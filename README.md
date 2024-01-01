@@ -1,58 +1,36 @@
-<h1>Toph Leaderboard</h1>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-<h3>Website: <a href="https://toph.pages.dev">toph.pages.dev </h3>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+## Getting Started
 
-<p>
-<b>
-This website showcases the users with the highest submissions of the Fastest, Lightest and Shortest code in toph.co
-  <br> Also, it shows all the unsolved problems in Toph. Go and solve them if you can! 👀
-</b>
-</p>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+First, run the development server:
 
-<p>
-<b>This is a leaderboard of one the toph's problems</b>
-</p>
-<p align="center">
-  <img height="333px" src="https://graph.org/file/5fa14c1283833a3f50a72.png"
-    alt="Toph Submissions" />
-</p>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<p>
-<b>I gathered the information of all the problems and showed them in one place. <br> The data is updated every 10
-  minutes to get the latest data. </b>
-</p>
-<h1>Some ScreenShots of the website</h1>
-<p align="center">
-<h2>Fastest ⚡</h2>
-<img height="333px" src="https://graph.org/file/b1693e066639192c8875e.png"
-  alt="Fastest Toph Submissions" />
-<h2>Lightest ☁</h2>
-<img height="333px" src="https://graph.org/file/a42967a8b6dad13eda44a.png"
-  alt="Lightest Toph Submissions" />
-<h2>Shortest  🔍</h2>
-<img height="333px" src="https://graph.org/file/cede2c749de2cbea241ca.png"
-  alt="Shortest Toph Submissions" />
-<h2>Unsolved Problems 😵</h2>
-<img height="333px" src="https://graph.org/file/57e111d334be8c6d111f1.png"
-  alt="Unsolved Problems" />
-</p>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-<p>
-<b>It uses an API in the backend which is also made by me ( <i>why won't it be, right?</i> 😉 😌 ).
-<br>
-But if I make that open-source, people may misuse the algorighm to DDoS Toph.co server. <br>
-So, it's better to keep the source code hidden. But you can use the API I made.
-</b>
-</p>
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-<h2>API</h2>
-<p>
-<b>Url:</b> <a href="https://toph-api.onrender.com">toph-api.onrender.com</a>
+## Learn More
 
-See <a href="https://toph-api.onrender.com/docs">toph-api.onrender.com/docs</a> for the available endpoints</p>
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
