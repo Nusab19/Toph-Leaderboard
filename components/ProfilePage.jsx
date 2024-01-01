@@ -14,7 +14,7 @@ const Styles = {
 
 const ProfilePage = ({ props }) => {
   const [data, setData] = useState(props.data);
-  const [selected, setSelected] = useState(props.show);
+  const [selected, setSelected] = useState(props.selected);
   const [userName, setUserName] = useState(props.userName);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
 
