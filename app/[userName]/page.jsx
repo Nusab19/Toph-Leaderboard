@@ -14,19 +14,26 @@ const Page = (req) => {
   const [fastest, lightest, shortest] = use(userData.json()).content;
   const data = { fastest, lightest, shortest };
 
-  let show = "fastest";
-  if (lightest.length > 0) {
-    show = "lightest";
-  } else if (shortest.length > 0) {
-    show = "shortest";
-  }
+  let selected;
 
+  if (fastest.length > 0) {
+    selected = "fastest";
+  } else if (lightest.length > 0) {
+    selected = "lightest";
+  } else if (shortest.length > 0) {
+    selected = "shortest";
+  }
 
   return (
     <main>
-      <ProfilePage props={{ data, userName, show }} />
+      <ProfilePage props={{ data, userName, selected }} />
     </main>
   );
 };
 
 export default Page;
+
+
+export const metadata = {
+  title:"User's Profile",
+}
