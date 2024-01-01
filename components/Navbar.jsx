@@ -54,7 +54,7 @@ const Navbar = () => {
             height={50}
             alt="Toph Leaderboard logo"
           />
-          <span className="mt-2 text-2xl font-bold md:text-3xl">
+          <span className="mt-2 text-lg font-bold md:text-3xl">
             Toph Leaderboard
           </span>
         </div>
