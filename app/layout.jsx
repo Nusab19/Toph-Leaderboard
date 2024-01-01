@@ -22,7 +22,8 @@ export default function RootLayout({ children }) {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://toph.pages.dev/" />
-        <meta property="og:image" content="/images/og.png" />
+        <meta property="og:image" content="/logo.svg" />
+        <meta property="og:image:type" content="image/svg+xml" />
         <meta property="og:image:alt" content={metadata.title} />
       </head>
       <body
