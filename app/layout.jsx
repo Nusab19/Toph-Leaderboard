@@ -1,9 +1,10 @@
+export const runtime = "edge";
+
 import "./globals.css";
 import { Ubuntu } from "next/font/google";
 
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
-
 
 const inter = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
@@ -23,7 +24,9 @@ export default function RootLayout({ children }) {
         <meta property="og:url" content="https://toph.pages.dev/" />
         <meta property="og:image" content="/images/og.png" />
       </head>
-      <body className={`${inter.className} bg-[#f8fafc] text-[#2f353b] dark:bg-gray-900 dark:text-gray-100`}>
+      <body
+        className={`${inter.className} bg-[#f8fafc] text-[#2f353b] dark:bg-gray-900 dark:text-gray-100`}
+      >
         <Navbar />
         {children}
         <Footer />
@@ -31,4 +34,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
