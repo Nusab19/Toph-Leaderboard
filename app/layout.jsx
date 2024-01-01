@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://toph.pages.dev/" />
         <meta property="og:image" content="/images/og.png" />
+        <meta property="og:image:alt" content={metadata.title} />
       </head>
       <body
         className={`${inter.className} bg-[#f8fafc] text-[#2f353b] dark:bg-gray-900 dark:text-gray-100`}
