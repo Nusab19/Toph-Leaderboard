@@ -37,7 +37,7 @@ const Table = ({ props }) => {
           </span>
         </span>
 
-        <p className="my-1 text-base font-normal text-gray-500 dark:text-gray-200">
+        <p className="mt-5 mb-1 text-base font-normal text-gray-500 dark:text-gray-200">
           The table below shows the users with the most shortest submissions on
           toph.co
           <br />
@@ -61,12 +61,12 @@ const Table = ({ props }) => {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="divide-y-2 divide-gray-200 dark:divide-gray-700">
           {Object.keys(data[selected]).map((userName, index) => {
             return (
               <tr
                 key={index}
-                className="flex items-center justify-between border-b-2 border-gray-200 text-sm font-semibold dark:border-gray-700 dark:text-gray-200"
+                className="flex items-center justify-between text-sm font-semibold dark:text-gray-200"
               >
                 <td className="flex items-center">
                   <div className="w-5 px-6 py-4">{index + 1}</div>
