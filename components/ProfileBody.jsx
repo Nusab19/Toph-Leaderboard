@@ -40,7 +40,7 @@ const ProfileBody = ({ props }) => {
           <br />
           <code className="inline-block rounded-md py-1 font-bold text-gray-700 dark:text-gray-300">
             {userName} has <b>{data[selected].length}</b>{" "}
-            {selected.capitalize()} submissions on toph.co
+            {selected.capitalize()} submissions in toph.co
           </code>
         </p>
       </div>
