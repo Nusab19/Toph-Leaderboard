@@ -23,7 +23,7 @@ const ProfileBody = ({ props }) => {
       <div className="p-5 text-left font-semibold">
         <div className="flex items-center justify-start gap-2">
           <span>{iconList[selected]}</span>
-          <span className="text-3xl md:text-4xl">
+          <span className="text-3xl md:text-4xl flex">
             {selected.titleCase()} Solves by{" "}
             <Link
               href={`https://toph.co/u/${userName}`}
@@ -66,7 +66,8 @@ const ProfileBody = ({ props }) => {
                   <div className="w-5 px-6 py-4">{index + 1}</div>
                   <Link
                     key={index}
-                    href={`https://toph.co/u/${userName}`}
+                    href={`https://toph.co/p/${data[selected][index]}`}
+                    target="_blank"
                     className="group ml-5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-emerald-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-emerald-400"
                   >
                     {data[selected][index].replace(/-/g, " ")}
