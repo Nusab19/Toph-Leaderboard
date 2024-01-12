@@ -6,7 +6,7 @@ import { Ubuntu } from "next/font/google";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 
-const inter = Ubuntu({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const inter = Ubuntu({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata = {
   title: "Toph Leaderboard",
