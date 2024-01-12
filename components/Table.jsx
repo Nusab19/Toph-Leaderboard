@@ -17,7 +17,7 @@ const iconList = {
 
 const colors = {
   // colors for the top 5 users
-  1: "text-[#d62828] bg-[#d62828] dark:bg-[#ff4444] dark:text-[#ff4444]",
+  1: "text-[#d62828] bg-[#d62828] dark:bg-[#ff3333] dark:text-[#ff3333]",
   2: "text-[#f77f00] bg-[#f77f00] dark:bg-[#ff901a] dark:text-[#ff901a]",
   3: "text-[#2eaa71] bg-[#2eaa71] dark:bg-[#37c884] dark:text-[#37c884]",
   4: "text-[#3598dc] bg-[#3598dc] dark:bg-[#52a7e0] dark:text-[#52a7e0]",
@@ -48,36 +48,45 @@ const Table = ({ props }) => {
           </q>
         </p>
       </div>
-      <div className="flex items-center justify-between bg-gray-100 font-bold uppercase dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-200">
-        <span className="flex items-center">
-          <div className="w-5 px-6 py-3">#</div>
-          <div className="px-6 py-3">Solvers</div>
-        </span>
-        <div className="px-6 py-3 ">Problems</div>
-      </div>
 
-      {Object.keys(data[selected]).map((userName, index) => {
-        return (
-          <Link
-            key={index}
-            href={`/${userName}`}
-            className="flex items-center justify-between text-sm font-semibold transition duration-100 ease-in-out hover:bg-[#f1f9ff] dark:hover:bg-opacity-5 dark:text-gray-300"
-          >
-            <span className="flex items-center">
-              <div className="w-5 px-6 py-4">{index + 1}</div>
-              <div
-                className={
-                  "ml-5 rounded-md bg-opacity-15 dark:bg-opacity-15 px-3 py-1 text-start " +
-                  (index < 5 ? colors[index + 1] : "bg-[#d2cbcb]")
-                }
+      <table className="w-full">
+
+        <thead>
+          <tr className="flex items-center justify-between bg-gray-100 font-bold uppercase dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-200">
+            <th className="flex items-center">
+              <div className="w-5 px-6 py-3">#</div>
+              <div className="px-6 py-3">Solvers</div>
+            </th>
+            <th className="px-6 py-3 ">Problems</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {Object.keys(data[selected]).map((userName, index) => {
+            return (
+              <tr
+                key={index}
+                className="flex items-center justify-between border-b-2 border-gray-200 text-sm font-semibold dark:border-gray-700 dark:text-gray-200"
               >
-                {userName}
-              </div>
-            </span>
-            <div className="px-6 py-4">{data[selected][userName]}</div>
-          </Link>
-        );
-      })}
+                <td className="flex items-center">
+                  <div className="w-5 px-6 py-4">{index + 1}</div>
+                  <Link
+                    key={index}
+                    href={`/${userName}`}
+                    className={
+                      "ml-5 rounded-md bg-opacity-10 dark:bg-opacity-5 px-3 py-1 text-start hover:bg-opacity-15 dark:hover:bg-opacity-10 " +
+                      (index < 5 ? colors[index + 1] : "bg-[#d2cbcb]")
+                    }
+                  >
+                    {userName}
+                  </Link>
+                </td>
+                <td className="px-6 py-4">{data[selected][userName]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
