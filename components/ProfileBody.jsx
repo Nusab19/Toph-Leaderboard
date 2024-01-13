@@ -23,7 +23,7 @@ const ProfileBody = ({ props }) => {
       <div className="p-5 text-left font-semibold">
         <div className="flex items-center justify-start gap-2">
           <span>{iconList[selected]}</span>
-          <span className="text-3xl md:text-4xl flex">
+          <span className="flex flex-wrap items-center text-3xl md:text-4xl gap-2">
             {selected.titleCase()} Solves by{" "}
             <Link
               href={`https://toph.co/u/${userName}`}
@@ -36,7 +36,10 @@ const ProfileBody = ({ props }) => {
 
         <p className="mb-1 mt-5 text-base font-normal text-gray-500 dark:text-gray-200">
           The table below shows the {selected.capitalize()} submissions of{" "}
-          {userName} on toph.co
+          <span className="font-semibold text-gray-700 dark:text-gray-300">
+            {userName}
+          </span>{" "}
+          on toph.co
           <br />
           <code className="inline-block rounded-md py-1 font-bold text-gray-700 dark:text-gray-300">
             {userName} has <b>{data[selected].length}</b>{" "}
