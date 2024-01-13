@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 import ProfileBody from "@components/ProfileBody";
+import icons from "@helpers/icons";
 
 const Styles = {
   buttons: {
@@ -19,7 +21,13 @@ const ProfilePage = ({ props }) => {
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
 
   return (
-    <div className="mt-32">
+    <div className="mt-24">
+      <Link
+        href="/"
+        className="mx-1 flex w-fit items-center gap-2 rounded-md bg-[#3598dc] px-4 py-3 text-lg text-[#e7ecf1] transition duration-100 ease-in-out hover:bg-[#3587bd] md:mx-5 dark:bg-[#2283c3] dark:hover:bg-[#3598dc]"
+      >
+        {icons.goback} Go Back
+      </Link>
       <div className="mx-1 mb-5 mt-10 flex gap-3 md:mx-5">
         <button
           type="button"
