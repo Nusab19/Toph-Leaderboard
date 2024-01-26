@@ -51,7 +51,9 @@ const ProfilePage = ({ props }) => {
           Shortest
         </button>
       </div>
-      <ProfileBody props={{ data, selected, userName }} />
+      <ProfileBody
+        props={{ data, selected, userName, PHOTO_URL: props.PHOTO_URL }}
+      />
     </div>
   );
 };

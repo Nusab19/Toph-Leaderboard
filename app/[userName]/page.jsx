@@ -26,7 +26,7 @@ const Page = (req) => {
 
   return (
     <main>
-      <ProfilePage props={{ data, userName, selected }} />
+      <ProfilePage props={{ data, userName, selected, PHOTO_URL:process.env.PHOTO_URL }} />
     </main>
   );
 };

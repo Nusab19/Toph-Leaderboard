@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import "@helpers/stringMethods"; // String.prototype.capitalize() & String.prototype.titleCase()
@@ -16,17 +17,26 @@ const iconList = {
 };
 
 const ProfileBody = ({ props }) => {
-  const { data, userName, selected } = props;
+  const { data, userName, selected, PHOTO_URL } = props;
 
   return (
     <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800 dark:text-gray-100">
+      <Image
+        src={`${PHOTO_URL}/${userName}.jpg`}
+        alt={`${userName}'s Profile Picture`}
+        width={200}
+        height={200}
+        className="rounded-lg md:mx-6 md:mt-6 md:-mb-2 mx-auto mt-6"
+      />
+
       <div className="p-5 text-left font-semibold">
         <div className="flex items-center justify-start gap-2">
           <span>{iconList[selected]}</span>
-          <span className="flex flex-wrap items-center text-3xl md:text-4xl gap-2">
+          <span className="flex flex-wrap items-center gap-2 text-xl md:text-4xl">
             {selected.titleCase()} Solves by{" "}
             <Link
               href={`https://toph.co/u/${userName}`}
+              target="_blank"
               className="rounded-md bg-emerald-500 bg-opacity-10 px-4 py-2 text-emerald-500 hover:bg-opacity-15 dark:bg-emerald-400 dark:bg-opacity-5 dark:text-emerald-400 dark:hover:bg-opacity-10"
             >
               {userName}
