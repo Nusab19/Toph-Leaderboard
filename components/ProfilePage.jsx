@@ -1,5 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+
 import Link from "next/link";
 
 import ProfileBody from "@components/ProfileBody";
@@ -19,6 +22,19 @@ const ProfilePage = ({ props }) => {
   const [selected, setSelected] = useState(props.selected);
   const [userName, setUserName] = useState(props.userName);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
+
+  const router = useRouter();
+  const query = useSearchParams().get("q");
+
+  useEffect(() => {
+    if (query) {
+      setSelected(query);
+    }
+  }, [query]);
+
+  useEffect(() => {
+    router.push(`?q=${selected}`, undefined, { shallow: true });
+  }, [selected, router]);
 
   return (
     <div className="mt-24">
