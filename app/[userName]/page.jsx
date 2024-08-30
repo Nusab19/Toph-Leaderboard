@@ -1,17 +1,16 @@
-import { use } from "react";
-
 import ProfilePage from "@components/ProfilePage";
 
-const Page = (req) => {
+const Page = async (req) => {
   const { userName } = req.params;
   const rootURL = process.env.ROOT_URL || "http://localhost:3000";
-  const userData = use(
-    fetch(`${rootURL}/api/getUser`, {
-      method: "POST",
-      body: JSON.stringify({ userName }),
-    }),
-  );
-  const [fastest, lightest, shortest] = use(userData.json()).content;
+  const userData = await fetch(`${rootURL}/api/getUser`, {
+    method: "POST",
+    body: JSON.stringify({ userName }),
+    next: {
+      revalidate: 120,
+    },
+  });
+  const [fastest, lightest, shortest] = (await userData.json()).content;
   const data = { fastest, lightest, shortest };
 
   let selected;
@@ -26,14 +25,15 @@ const Page = (req) => {
 
   return (
     <main>
-      <ProfilePage props={{ data, userName, selected, PHOTO_URL:process.env.PHOTO_URL }} />
+      <ProfilePage
+        props={{ data, userName, selected, PHOTO_URL: process.env.PHOTO_URL }}
+      />
     </main>
   );
 };
 
 export default Page;
 
-
 export const metadata = {
-  title:"User's Profile",
-}
+  title: "User's Profile",
+};
