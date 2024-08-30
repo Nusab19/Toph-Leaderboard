@@ -39,8 +39,8 @@ const ProfilePage = ({ props }) => {
   return (
     <div className="mt-24">
       <Link
-        href="/"
-        className="mx-1 flex w-fit items-center gap-2 rounded-md bg-[#3598dc] px-4 py-3 text-lg text-[#e7ecf1] transition duration-100 ease-in-out hover:bg-[#3587bd] md:mx-5 dark:bg-[#2283c3] dark:hover:bg-[#3598dc]"
+        href={`/?q=${selected}`}
+        className="mx-1 flex w-fit items-center gap-2 rounded-md bg-[#3598dc] px-4 py-3 text-lg text-[#e7ecf1] transition duration-100 ease-in-out hover:bg-[#3587bd] md:mx-5 dark:bg-[#2283c3] dark:hover:bg-[#3599dc88]"
       >
         {icons.goback} Go Back
       </Link>

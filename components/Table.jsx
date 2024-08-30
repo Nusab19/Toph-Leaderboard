@@ -28,7 +28,7 @@ const Table = ({ props }) => {
   const { data, selected } = props;
 
   return (
-    <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800 dark:text-gray-100">
+    <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
       <div className="p-5 text-left font-semibold">
         <span className="flex items-center justify-start gap-2">
           <span>{iconList[selected]}</span>
@@ -52,7 +52,7 @@ const Table = ({ props }) => {
       <table className="w-full">
 
         <thead>
-          <tr className="flex items-center justify-between bg-gray-100 font-bold uppercase dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-200">
+          <tr className="flex items-center justify-between bg-gray-100 font-bold uppercase dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-200">
             <th className="flex items-center">
               <div className="w-5 px-6 py-3">#</div>
               <div className="px-6 py-3">Solvers</div>

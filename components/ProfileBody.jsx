@@ -20,55 +20,69 @@ const ProfileBody = ({ props }) => {
   const { data, userName, selected, PHOTO_URL } = props;
 
   return (
-    <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800 dark:text-gray-100">
+    <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
       <Image
         src={`${PHOTO_URL}/${userName}.jpg`}
         alt={`${userName}'s Profile Picture`}
         width={200}
         height={200}
-        className="rounded-lg md:mx-6 md:mt-6 md:-mb-2 mx-auto mt-6"
+        className="mx-auto mt-6 rounded-lg md:mx-6 md:-mb-2 md:mt-6"
       />
 
       <div className="p-5 text-left font-semibold">
-        <div className="flex items-center justify-start gap-2">
+        <Link
+          href={`https://toph.co/u/${userName}`}
+          target="_blank"
+          className="ml-1 rounded-md bg-blue-500 bg-opacity-10 px-3 py-2 text-xl text-blue-500 hover:bg-opacity-15 md:text-2xl lg:text-3xl dark:bg-blue-400 dark:bg-opacity-5 dark:text-blue-400 dark:hover:bg-opacity-10"
+        >
+          @{userName}
+        </Link>
+        <div className="flex items-center justify-start gap-2 py-5">
           <span>{iconList[selected]}</span>
-          <span className="flex flex-wrap items-center gap-2 text-xl md:text-4xl">
-            {selected.titleCase()} Solves by{" "}
-            <Link
-              href={`https://toph.co/u/${userName}`}
-              target="_blank"
-              className="rounded-md bg-emerald-500 bg-opacity-10 px-4 py-2 text-emerald-500 hover:bg-opacity-15 dark:bg-emerald-400 dark:bg-opacity-5 dark:text-emerald-400 dark:hover:bg-opacity-10"
-            >
-              {userName}
-            </Link>
-          </span>
+          <h2 className="font-mono text-lg tracking-widest underline underline-offset-8 md:text-xl">
+            {motto[selected]}
+          </h2>
         </div>
-
-        <p className="mb-1 mt-5 text-base font-normal text-gray-500 dark:text-gray-200">
-          The table below shows the {selected.capitalize()} submissions of{" "}
-          <span className="font-semibold text-gray-700 dark:text-gray-300">
-            {userName}
-          </span>{" "}
-          on toph.co
-          <br />
-          <code className="inline-block rounded-md py-1 font-bold text-gray-700 dark:text-gray-300">
-            {userName} has <b>{data[selected].length}</b>{" "}
-            {selected.capitalize()} submissions in toph.co
-          </code>
-        </p>
+        <div className="whitespace-pre font-semibold text-gray-700 dark:text-gray-300">
+          <p>
+            Fastest<span className="ml-[15px] mr-1">:</span>
+            <code className="text-center font-mono tracking-wide">
+              {data.fastest.length}
+            </code>
+          </p>
+          <p>
+            Lightest<span className="ml-[8px] mr-1">:</span>
+            <code className="text-center font-mono tracking-wide">
+              {data.lightest.length}
+            </code>
+          </p>
+          <p>
+            Shortest
+            <span className="ml-[6px] mr-1">:</span>
+            <code className="text-center font-mono tracking-wide">
+              {data.shortest.length}
+            </code>
+          </p>
+        </div>
       </div>
 
       <table className="w-full">
         <thead>
-          <tr className="bg-gray-100 font-bold uppercase dark:bg-gray-700 dark:bg-opacity-50 dark:text-gray-200">
+          <tr className="bg-gray-100 font-bold uppercase dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-200">
             <th className="flex items-center">
               <div className="w-5 px-6 py-3">#</div>
               <div className="px-6 py-3">Problems</div>
             </th>
           </tr>
         </thead>
-
-        <tbody className="divide-y-2 divide-gray-200 dark:divide-gray-700">
+        {data[selected].length === 0 && (
+          <div className="flex h-64 items-center justify-center">
+            <p className="text-lg font-bold md:text-2xl lg:text-4xl">
+              Nothing Here...
+            </p>
+          </div>
+        )}
+        <tbody className="divide-y-2 divide-gray-200 dark:divide-gray-800">
           {Object.keys(data[selected]).map((_, index) => {
             return (
               <tr
@@ -81,7 +95,7 @@ const ProfileBody = ({ props }) => {
                     key={index}
                     href={`https://toph.co/p/${data[selected][index]}`}
                     target="_blank"
-                    className="group ml-5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-emerald-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-emerald-400"
+                    className="group ml-5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-sky-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-sky-400"
                   >
                     {data[selected][index].replace(/-/g, " ")}
                     <svg

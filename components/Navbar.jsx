@@ -6,8 +6,23 @@ import Image from "next/image";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(null);
+  const [extraClass, setExtraClass] = useState("");
+  const [scrollY, setScrollY] = useState(0);
+  // Hide Navbar on Scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      if (scrollY > window.scrollY) {
+        setExtraClass("");
+      } else {
+        setExtraClass("-translate-y-full");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollY]);
 
-  // Do NOT even think about touching this useEffect hook. It's a mess. 
+  // Do NOT even think about touching this useEffect hook. It's a mess.
   useEffect(() => {
     function changeTheme(newTheme) {
       const bodyTheme = document.documentElement.classList;
@@ -42,9 +57,10 @@ const Navbar = () => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-
   return (
-    <nav className="fixed left-0 top-0 flex w-full items-center justify-between border-b-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800">
+    <nav
+      className={`fixed left-0 top-0 flex w-full items-center justify-between border-b-2 border-gray-300 bg-white transition-all duration-300 dark:border-gray-800 dark:bg-gray-900 ${extraClass}`}
+    >
       <Link href="/">
         <div className="mx-5 my-2 flex items-center justify-start gap-3">
           <Image

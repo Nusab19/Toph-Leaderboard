@@ -9,7 +9,7 @@ const options = {
     "User-Agent": "Node.js",
   },
   next: {
-    revalidate: 60 * 10,
+    revalidate: 0,
   },
 };
 
