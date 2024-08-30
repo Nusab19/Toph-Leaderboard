@@ -30,6 +30,8 @@ const ProfilePage = ({ props }) => {
     if (query) {
       setSelected(query);
     }
+    // set title
+    document.title = `${userName}'s Profile`;
   }, [query]);
 
   useEffect(() => {

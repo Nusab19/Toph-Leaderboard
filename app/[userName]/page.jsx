@@ -1,5 +1,6 @@
 import ProfilePage from "@components/ProfilePage";
 
+
 const Page = async (req) => {
   const { userName } = req.params;
   const rootURL = process.env.ROOT_URL || "http://localhost:3000";

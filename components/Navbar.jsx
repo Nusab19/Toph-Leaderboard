@@ -59,7 +59,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-0 top-0 flex w-full items-center justify-between border-b-2 border-gray-300 bg-white transition-all duration-300 dark:border-gray-800 dark:bg-gray-900 ${extraClass}`}
+      className={`fixed left-0 top-0 flex w-full items-center justify-between border-b-2 border-gray-300 bg-white transition-transform duration-300 dark:border-gray-800 dark:bg-gray-900 ${extraClass}`}
     >
       <Link href="/">
         <div className="mx-5 my-2 flex items-center justify-start gap-3">

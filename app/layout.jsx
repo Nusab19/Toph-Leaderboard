@@ -6,12 +6,14 @@ import { Ubuntu } from "next/font/google";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 
-const inter = Ubuntu({ subsets: ["latin"], weight: ["400"] });
+const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
   title: "Toph Leaderboard",
   description:
     "Toph Leaderboard is a website showcasing the users with the most Fastest, Lightest & Shortest code submissions in toph.co online judge",
+  keywords:
+    "toph, toph.co, toph leaderboard, toph fastest, toph lightest, toph shortest, toph user profile, toph user, nusab taha, nusab19, nusab toph",
 };
 
 export default function RootLayout({ children }) {
@@ -26,7 +28,10 @@ export default function RootLayout({ children }) {
         <meta property="og:image:type" content="image/svg+xml" />
         <meta property="og:image:alt" content={metadata.title} />
 
-        <meta name="google-site-verification" content="WPPXho-ehsTzL41OYAECiVP8ilWMxfxjHtHwQUsu1FU" />
+        <meta
+          name="google-site-verification"
+          content="WPPXho-ehsTzL41OYAECiVP8ilWMxfxjHtHwQUsu1FU"
+        />
       </head>
       <body
         className={`${inter.className} bg-[#f8fafc] text-[#2f353b] dark:bg-gray-900 dark:text-gray-100`}
