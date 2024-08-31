@@ -32,7 +32,7 @@ const ProfilePage = ({ props }) => {
     }
     // set title
     document.title = `${userName}'s Profile`;
-  }, [query]);
+  }, [query, userName]);
 
   useEffect(() => {
     router.push(`?q=${selected}`, undefined, { shallow: true });
