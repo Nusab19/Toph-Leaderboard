@@ -1,8 +1,10 @@
-export const runtime = "edge";
-
 import { NextResponse } from "next/server";
-
 import makeRequest from "@helpers/makeRequest";
+
+
+export const runtime = "edge";
+export const revalidate = 60;
+
 
 export async function POST(req) {
   const { userName } = await req.json();

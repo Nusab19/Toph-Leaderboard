@@ -1,5 +1,7 @@
 import ProfilePage from "@components/ProfilePage";
 
+export const runtime = "edge";
+export const revalidate = 60;
 
 const Page = async (req) => {
   const { userName } = req.params;
