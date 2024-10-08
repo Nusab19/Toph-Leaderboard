@@ -13,7 +13,7 @@ const Styles = {
     active:
       "bg-[#3598dc] text-[#e7ecf1] dark:bg-[#2283c3] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out",
     inactive:
-      "hover:bg-[#e4f0f8] dark:hover:bg-[#e4f0f820] text-[#3598dc] dark:text-[#52a7e0] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out",
+      "hover:bg-[#e4f0f8] dark:hover:bg-gray-800/50 text-[#3598dc] dark:text-[#52a7e0] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out ring-2 ring-[#e4f0f8] dark:ring-gray-800/50",
   },
 };
 
@@ -35,17 +35,17 @@ const ProfilePage = ({ props }) => {
   }, [query, userName]);
 
   useEffect(() => {
-    router.push(`?q=${selected}`, undefined, { shallow: true });
+    router.replace(`?q=${selected}`, undefined, { shallow: true });
   }, [selected, router]);
 
   return (
     <div className="mt-24">
-      <Link
+      {/* <Link
         href={`/?q=${selected}`}
         className="mx-1 flex w-fit items-center gap-2 rounded-md bg-[#3598dc] px-4 py-3 text-lg text-[#e7ecf1] transition duration-100 ease-in-out hover:bg-[#3587bd] md:mx-5 dark:bg-[#2283c3] dark:hover:bg-[#3599dc88]"
       >
         {icons.goback} Go Back
-      </Link>
+      </Link> */}
       <div className="mx-1 mb-5 mt-10 flex gap-3 md:mx-5">
         <button
           type="button"

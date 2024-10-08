@@ -10,10 +10,9 @@ const Styles = {
     active:
       "bg-[#3598dc] text-[#e7ecf1] dark:bg-[#2283c3] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out",
     inactive:
-      "hover:bg-[#e4f0f8] dark:hover:bg-[#e4f0f820] text-[#3598dc] dark:text-[#52a7e0] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out",
+      "hover:bg-[#e4f0f8] dark:hover:bg-gray-800/50 text-[#3598dc] dark:text-[#52a7e0] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out ring-2 ring-[#e4f0f8] dark:ring-gray-800/50",
   },
 };
-
 const Home = ({ props }) => {
   const [data, setData] = useState(props.data);
   const [selected, setSelected] = useState("fastest");
@@ -29,7 +28,7 @@ const Home = ({ props }) => {
   }, [query]);
 
   useEffect(() => {
-    router.push(`?q=${selected}`, undefined, { shallow: true });
+    router.replace(`?q=${selected}`, undefined, { shallow: true });
   }, [selected, router]);
 
   return (

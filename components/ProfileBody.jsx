@@ -20,20 +20,20 @@ const ProfileBody = ({ props }) => {
   const { data, userName, selected, PHOTO_URL } = props;
 
   return (
-    <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
+    <div className="mx-1 bg-white p-0.5 text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
       <Image
         src={`${PHOTO_URL}/${userName}.jpg`}
         alt={`${userName}'s Profile Picture`}
         width={200}
         height={200}
-        className="mx-auto mt-6 rounded-lg md:mx-6 md:-mb-2 md:mt-6"
+        className="m-2 block rounded-lg md:m-4"
       />
 
-      <div className="p-5 text-left font-semibold">
+      <div className="m-2 mt-5 text-left font-semibold md:ml-4">
         <Link
           href={`https://toph.co/u/${userName}`}
           target="_blank"
-          className="ml-1 rounded-md bg-blue-500 bg-opacity-10 px-3 py-2 text-xl text-blue-500 hover:bg-opacity-15 md:text-2xl lg:text-3xl dark:bg-blue-400 dark:bg-opacity-5 dark:text-blue-400 dark:hover:bg-opacity-10"
+          className="rounded-md bg-blue-500 bg-opacity-10 px-3 py-2 text-xl text-blue-500 hover:bg-opacity-15 md:text-2xl lg:text-3xl dark:bg-blue-400 dark:bg-opacity-5 dark:text-blue-400 dark:hover:bg-opacity-10"
         >
           @{userName}
         </Link>
@@ -70,8 +70,8 @@ const ProfileBody = ({ props }) => {
         <thead>
           <tr className="bg-gray-100 font-bold uppercase dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-200">
             <th className="flex items-center">
-              <div className="w-5 px-6 py-3">#</div>
-              <div className="px-6 py-3">Problems</div>
+              <div className="w-5 px-2 py-3 md:px-6">#</div>
+              <div className="px-3 py-3 md:px-6">Problems</div>
             </th>
           </tr>
         </thead>
@@ -90,12 +90,12 @@ const ProfileBody = ({ props }) => {
                 className="flex items-center justify-between text-sm font-semibold dark:text-gray-200"
               >
                 <td className="flex items-center">
-                  <div className="w-5 px-6 py-4">{index + 1}</div>
+                  <div className="px-2 py-4 md:px-6">{index + 1}</div>
                   <Link
                     key={index}
                     href={`https://toph.co/p/${data[selected][index]}`}
                     target="_blank"
-                    className="group ml-5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-sky-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-sky-400"
+                    className="group pl-2 md:ml-4 ml-1.5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-sky-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-sky-400"
                   >
                     {data[selected][index].replace(/-/g, " ")}
                     <svg

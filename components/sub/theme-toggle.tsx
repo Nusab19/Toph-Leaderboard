@@ -68,11 +68,11 @@ export default function ModeToggle() {
   return (
     <div className="mr-2 h-8 w-8 select-none hover:cursor-pointer md:mr-4 md:h-10 md:w-10">
       <MOON
-        className="block h-full w-full rounded-md bg-gray-100/30 p-1.5 hover:bg-gray-200/30 active:scale-90 dark:hidden"
+        className="block h-full w-full rounded-md bg-gray-100/30 p-0.5 md:p-1.5 hover:bg-gray-200/30 active:scale-90 dark:hidden"
         onClick={() => setTheme("dark")}
       />
       <SUN
-        className="hidden h-full w-full rounded-md bg-gray-700/15 p-1.5 hover:bg-gray-700/25 active:scale-90 dark:block"
+        className="hidden h-full w-full rounded-md bg-gray-700/15 p-0.5 md:p-1.5 hover:bg-gray-700/25 active:scale-90 dark:block"
         onClick={() => setTheme("light")}
       />
     </div>
