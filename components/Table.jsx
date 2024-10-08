@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import "@helpers/stringMethods"; // String.prototype.capitalize() & String.prototype.titleCase()
-import icons from "@helpers/icons";
+import "@/helpers/stringMethods"; // String.prototype.capitalize() & String.prototype.titleCase()
+import icons from "@/helpers/icons";
 
 const motto = {
   shortest: "Every bit counts!",

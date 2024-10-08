@@ -5,8 +5,8 @@ import { useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 
-import ProfileBody from "@components/ProfileBody";
-import icons from "@helpers/icons";
+import ProfileBody from "@/components/ProfileBody";
+import icons from "@/helpers/icons";
 
 const Styles = {
   buttons: {

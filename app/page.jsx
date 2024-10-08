@@ -1,5 +1,5 @@
-import Home from "@components/Home";
-import getLeaderboardData from "@helpers/getLeaderboardData";
+import Home from "@/components/Home";
+import getLeaderboardData from "@/helpers/getLeaderboardData";
 
 export const runtime = "edge";
 export const revalidate = 60;

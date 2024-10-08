@@ -1,4 +1,4 @@
-import ProfilePage from "@components/ProfilePage";
+import ProfilePage from "@/components/ProfilePage";
 
 export const runtime = "edge";
 export const revalidate = 60;

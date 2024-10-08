@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
-import Table from "@components/Table";
+import Table from "@/components/Table";
 
 const Styles = {
   buttons: {
@@ -33,7 +33,7 @@ const Home = ({ props }) => {
   }, [selected, router]);
 
   return (
-    <div className="mt-32">
+    <div className="mt-20 md:mt-24">
       <div className="mx-1 mb-5 mt-10 flex gap-3 md:mx-5">
         <button
           type="button"

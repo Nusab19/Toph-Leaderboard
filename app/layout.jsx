@@ -1,10 +1,12 @@
-export const runtime = "edge";
+import { ThemeProvider } from "../components/sub/theme-provider";
 
 import "./globals.css";
 import { Ubuntu } from "next/font/google";
 
-import Navbar from "@components/Navbar";
-import Footer from "@components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export const runtime = "edge";
 
 const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -36,9 +38,16 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} bg-[#f8fafc] text-[#2f353b] dark:bg-gray-900 dark:text-gray-100`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
