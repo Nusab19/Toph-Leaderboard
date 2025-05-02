@@ -21,12 +21,12 @@ const ProfileBody = ({ props }) => {
 
   return (
     <div className="mx-1 bg-white p-0.5 text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
-      <Image
+      <img
         src={`${PHOTO_URL}/${userName}.jpg`}
         alt={`${userName}'s Profile Picture`}
-        width={200}
-        height={200}
-        className="m-2 block rounded-lg md:m-4"
+{/*         width={200}
+        height={200} */}
+        className="m-2 block rounded-lg md:m-4 w-[200px] h-[200px]"
       />
 
       <div className="m-2 mt-5 text-left font-semibold md:ml-4">
