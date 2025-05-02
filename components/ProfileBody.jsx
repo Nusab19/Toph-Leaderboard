@@ -24,8 +24,6 @@ const ProfileBody = ({ props }) => {
       <img
         src={`${PHOTO_URL}/${userName}.jpg`}
         alt={`${userName}'s Profile Picture`}
-{/*         width={200}
-        height={200} */}
         className="m-2 block rounded-lg md:m-4 w-[200px] h-[200px]"
       />
 
