@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import makeRequest from "@/helpers/makeRequest";
 
-export const runtime = "edge";
 export const revalidate = 60;
 
 export async function GET() {

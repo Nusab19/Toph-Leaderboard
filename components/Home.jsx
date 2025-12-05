@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
@@ -13,7 +13,8 @@ const Styles = {
       "hover:bg-[#e4f0f8] dark:hover:bg-gray-800/50 text-[#3598dc] dark:text-[#52a7e0] text-lg px-3 py-2 rounded-md transition duration-100 ease-in-out ring-2 ring-[#e4f0f8] dark:ring-gray-800/50",
   },
 };
-const Home = ({ props }) => {
+
+function HomeContent({ props }) {
   const [data, setData] = useState(props.data);
   const [selected, setSelected] = useState("fastest");
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
@@ -58,6 +59,14 @@ const Home = ({ props }) => {
       </div>
       <Table props={{ data, selected }} />
     </div>
+  );
+}
+
+const Home = ({ props }) => {
+  return (
+    <Suspense fallback={<div className="mt-20 md:mt-24 mx-1 md:mx-5">Loading...</div>}>
+      <HomeContent props={props} />
+    </Suspense>
   );
 };
 

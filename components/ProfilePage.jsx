@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
@@ -17,7 +17,7 @@ const Styles = {
   },
 };
 
-const ProfilePage = ({ props }) => {
+function ProfilePageContent({ props }) {
   const [data, setData] = useState(props.data);
   const [selected, setSelected] = useState(props.selected);
   const [userName, setUserName] = useState(props.userName);
@@ -73,6 +73,14 @@ const ProfilePage = ({ props }) => {
         props={{ data, selected, userName, PHOTO_URL: props.PHOTO_URL }}
       />
     </div>
+  );
+}
+
+const ProfilePage = ({ props }) => {
+  return (
+    <Suspense fallback={<div className="mt-24 mx-1 md:mx-5">Loading...</div>}>
+      <ProfilePageContent props={props} />
+    </Suspense>
   );
 };
 

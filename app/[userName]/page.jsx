@@ -1,11 +1,12 @@
 import ProfilePage from "@/components/ProfilePage";
 
-export const runtime = "edge";
 export const revalidate = 60;
 
 const Page = async (req) => {
   const { userName } = req.params;
-  const rootURL = process.env.ROOT_URL || "http://localhost:3000";
+  const rootURL = process.env.LOCAL
+    ? "http://localhost:3000"
+    : process.env.ROOT_URL;
   const userData = await fetch(`${rootURL}/api/getUser`, {
     method: "POST",
     body: JSON.stringify({ userName }),

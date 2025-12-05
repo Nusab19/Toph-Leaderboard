@@ -1,3 +1,5 @@
+.open-next/
+.dev.vars
 test*
 # dependencies
 /node_modules

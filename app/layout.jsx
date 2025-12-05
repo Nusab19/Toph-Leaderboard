@@ -6,7 +6,6 @@ import { Ubuntu } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const runtime = "edge";
 
 const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 

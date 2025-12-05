@@ -73,7 +73,7 @@ const ProfileBody = ({ props }) => {
             </th>
           </tr>
         </thead>
-        {data[selected].length === 0 && (
+        {data[selected]?.length === 0 && (
           <div className="flex h-64 items-center justify-center">
             <p className="text-lg font-bold md:text-2xl lg:text-4xl">
               Nothing Here...
