@@ -37,9 +37,12 @@ const Table = ({ props }) => {
           </span>
         </span>
 
-        <p className="mt-5 mb-1 text-base font-normal text-gray-500 dark:text-gray-200">
-          The table below shows the users with the most shortest submissions on
-          toph.co
+        <p className="mb-1 mt-5 text-base font-normal text-gray-500 dark:text-gray-200">
+          The table below shows the users with the most number of{" "}
+          <span className="font-semibold tracking-wide text-blue-500 dark:text-blue-400">
+            {selected}
+          </span>{" "}
+          submissions on toph.co
           <br />
           <q>
             <code className="inline-block rounded-md py-1 font-bold text-gray-700 dark:text-gray-300">
@@ -50,7 +53,6 @@ const Table = ({ props }) => {
       </div>
 
       <table className="w-full">
-
         <thead>
           <tr className="flex items-center justify-between bg-gray-100 font-bold uppercase dark:bg-gray-800 dark:bg-opacity-50 dark:text-gray-200">
             <th className="flex items-center">
@@ -72,9 +74,9 @@ const Table = ({ props }) => {
                   <div className="w-5 px-6 py-4">{index + 1}</div>
                   <Link
                     key={index}
-                    href={`/${userName}`}
+                    href={`/${userName}?q=${selected}`}
                     className={
-                      "ml-5 rounded-md bg-opacity-10 dark:bg-opacity-5 px-3 py-1 text-start hover:bg-opacity-15 dark:hover:bg-opacity-10 " +
+                      "ml-5 rounded-md bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 dark:bg-opacity-5 dark:hover:bg-opacity-10 " +
                       (index < 5 ? colors[index + 1] : "bg-[#d2cbcb]")
                     }
                   >

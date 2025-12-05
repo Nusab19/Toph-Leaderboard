@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, Suspense } from "react";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useQueryState } from "nuqs";
 
 import Table from "@/components/Table";
 import getLeaderboardData from "@/helpers/getLeaderboardData";
@@ -17,14 +16,15 @@ const Styles = {
 
 function HomeContent({ props }) {
   const [data, setData] = useState(null);
+  // Initialize state based on the default value of the query parameter
   const [selected, setSelected] = useState("fastest");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
 
-  const router = useRouter();
-  const query = useSearchParams().get("q");
+  const [query, setQuery] = useQueryState("q", { defaultValue: "fastest" });
 
+  // 1. Data Fetching Effect (No change needed here)
   useEffect(() => {
     const fetchLeaderboardData = async () => {
       try {
@@ -42,15 +42,22 @@ function HomeContent({ props }) {
     fetchLeaderboardData();
   }, []);
 
+  // 2. Query to State Effect (Kept to handle initial load and back/forward navigation)
   useEffect(() => {
-    if (query) {
+    // Only update local state if the query value is different from the current selected state
+    if (query && query !== selected) {
       setSelected(query);
     }
-  }, [query]);
+  }, [query, selected]);
 
-  useEffect(() => {
-    router.replace(`?q=${selected}`, undefined, { shallow: true });
-  }, [selected, router]);
+  // 3. REMOVED the useEffect that was: useEffect(() => { setQuery(selected); }, [selected]);
+  // This was the source of the infinite loop.
+
+  // New handler function to update both local state and URL query
+  const handleSelect = (value) => {
+    setSelected(value); // Update local state
+    setQuery(value);    // Update URL query (This replaces the removed useEffect)
+  };
 
   if (loading) {
     return (
@@ -81,21 +88,21 @@ function HomeContent({ props }) {
         <button
           type="button"
           className={classes[selected === "fastest" ? 0 : 1]}
-          onClick={() => setSelected("fastest")}
+          onClick={() => handleSelect("fastest")} // Use consolidated handler
         >
           Fastest
         </button>
         <button
           type="button"
           className={classes[selected === "lightest" ? 0 : 1]}
-          onClick={() => setSelected("lightest")}
+          onClick={() => handleSelect("lightest")} // Use consolidated handler
         >
           Lightest
         </button>
         <button
           type="button"
           className={classes[selected === "shortest" ? 0 : 1]}
-          onClick={() => setSelected("shortest")}
+          onClick={() => handleSelect("shortest")} // Use consolidated handler
         >
           Shortest
         </button>

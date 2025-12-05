@@ -1,11 +1,11 @@
 import { ThemeProvider } from "../components/sub/theme-provider";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import "./globals.css";
 import { Ubuntu } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 
 const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <NuqsAdapter>{children}</NuqsAdapter>
           <Footer />
         </ThemeProvider>
       </body>

@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
     <footer className="m-4 rounded-lg bg-white shadow dark:bg-gray-800">
-      <div className="md:max-10 w-full max-w-screen-xl p-4 md:py-8">
+      <div className="md:max-10 mx-auto w-full max-w-screen-xl p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a
-            className="flex items-center justify-start gap-4 text-xl font-semibold md:text-2xl dark:text-white"
+            className="flex items-center justify-start gap-4 text-xl font-semibold duration-100 hover:opacity-90 md:text-2xl dark:text-white"
             href="https://github.com/Nusab19/Toph-Leaderboard"
             target="_blank"
             title="Github Repository"
@@ -26,9 +26,14 @@ const Footer = () => {
           <a
             href="https://nusab19.pages.dev/"
             target="_blank"
-            className="mx-2 font-bold hover:underline"
+            className="mx-2 inline-flex items-center justify-center gap-1 font-bold text-blue-500 hover:underline dark:text-blue-300"
           >
-            Nusab Taha.
+            <span>Nusab Taha</span>
+            <img
+              src="https://flagcdn.com/w20/bd.png"
+              alt="Bangladesh Flag"
+              class="h-3 w-4 rounded-sm border border-slate-600"
+            />
           </a>
           All Rights Reserved.
         </span>
