@@ -71,7 +71,7 @@ function HomeContent({ props }) {
 const Home = ({ props }) => {
   return (
     <Suspense
-      fallback={<div className="mx-1 mt-20 md:mx-5 md:mt-24">Loading...</div>}
+      fallback={<></>}
     >
       <HomeContent props={props} />
     </Suspense>

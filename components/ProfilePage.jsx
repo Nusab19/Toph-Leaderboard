@@ -78,7 +78,7 @@ function ProfilePageContent({ props }) {
 
 const ProfilePage = ({ props }) => {
   return (
-    <Suspense fallback={<div className="mt-24 mx-1 md:mx-5">Loading...</div>}>
+    <Suspense fallback={<></>}>
       <ProfilePageContent props={props} />
     </Suspense>
   );
