@@ -11,7 +11,7 @@ const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
   title: "Toph Leaderboard",
-  metataBase: new URL("https://toph.pages.dev/"),
+  metadataBase: new URL("https://toph.pages.dev/"),
   description:
     "Toph Leaderboard is a website showcasing the users with the most Fastest, Lightest & Shortest code submissions in toph.co online judge",
   keywords:
