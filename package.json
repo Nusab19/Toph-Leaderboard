@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "deploy": "npx opennextjs-cloudflare build"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "^1.14.3",
     "next": "14.2.14",
     "next-themes": "^0.3.0",
     "react": "^18",
@@ -16,6 +16,7 @@
     "swc": "^1.0.11"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.14.3",
     "@types/react": "18.3.11",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
