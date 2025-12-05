@@ -25,6 +25,7 @@ const ProfileBody = ({ props }) => {
         src={`${PHOTO_URL}/${userName}.jpg`}
         alt={`${userName}'s Profile Picture`}
         className="m-2 block rounded-lg md:m-4 w-[200px] h-[200px]"
+        fetchPriority="1"
       />
 
       <div className="m-2 mt-5 text-left font-semibold md:ml-4">
