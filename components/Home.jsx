@@ -34,7 +34,13 @@ function HomeContent({ props }) {
 
   return (
     <div className="mt-20 md:mt-24">
-      <div className="mx-1 mb-5 mt-10 flex gap-3 md:mx-5">
+      <div className="mx-auto -mt-5 w-fit">
+        <p className="mx-5 text-balance rounded-md bg-blue-100 p-2 text-center text-sm text-xs tracking-wide text-blue-900 md:p-4 md:text-sm dark:bg-blue-950 dark:text-blue-200">
+          This project is not maintained for a long time. Data might be
+          outdated.
+        </p>
+      </div>
+      <div className="mx-1 mb-5 mt-4 flex gap-3 md:mx-5">
         <button
           type="button"
           className={classes[selected === "fastest" ? 0 : 1]}
@@ -64,7 +70,9 @@ function HomeContent({ props }) {
 
 const Home = ({ props }) => {
   return (
-    <Suspense fallback={<div className="mt-20 md:mt-24 mx-1 md:mx-5">Loading...</div>}>
+    <Suspense
+      fallback={<div className="mx-1 mt-20 md:mx-5 md:mt-24">Loading...</div>}
+    >
       <HomeContent props={props} />
     </Suspense>
   );

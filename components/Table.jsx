@@ -26,7 +26,6 @@ const colors = {
 
 const Table = ({ props }) => {
   const { data, selected } = props;
-  console.log(typeof data)
 
   return (
     <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">

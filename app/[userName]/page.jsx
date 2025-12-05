@@ -1,5 +1,38 @@
 import ProfilePage from "@/components/ProfilePage";
-import { getUser } from "@/app/server/getUser";
+import getUser from "@/helpers/getUser";
+import getLeaderboardData from "@/helpers/getLeaderboardData";
+
+export async function generateStaticParams() {
+  try {
+    const data = await getLeaderboardData();
+
+    // Extract all unique usernames from all categories
+    const usernames = new Set();
+
+    // Add usernames from fastest
+    if (data.fastest) {
+      Object.keys(data.fastest).forEach((username) => usernames.add(username));
+    }
+
+    // Add usernames from lightest
+    if (data.lightest) {
+      Object.keys(data.lightest).forEach((username) => usernames.add(username));
+    }
+
+    // Add usernames from shortest
+    if (data.shortest) {
+      Object.keys(data.shortest).forEach((username) => usernames.add(username));
+    }
+
+    // Convert to array of objects with userName property
+    return Array.from(usernames).map((username) => ({
+      userName: username,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
+}
 
 export const revalidate = 60;
 
@@ -35,9 +68,13 @@ const Page = async (req) => {
       </main>
     );
   } catch (error) {
-    console.error("Unexpected error fetching user data:", error);
+    // console.error("Unexpected error fetching user data:", error);
     return (
-      <div className="mt-20">Could not fetch the data - unexpected error</div>
+      <div className="mt-20">
+        Could not fetch the data - unexpected error
+        <br />
+        { String(error)}
+      </div>
     );
   }
 };

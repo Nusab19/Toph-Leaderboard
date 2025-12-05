@@ -1,4 +1,0 @@
-name = "toph"
-main = "./.open-next/server/index.js"
-compatibility_date = "2025-11-17"
-compatibility_flags = ["nodejs_compat"]

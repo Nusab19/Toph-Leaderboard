@@ -1,9 +1,7 @@
-"use server"
-
-import makeRequest from "@/helpers/makeRequest";
+import safeFetch from "@/helpers/safeFetch";
 
 export default async function getLeaderboardData() {
-  const res = await makeRequest("Data/leaderboard.json");
-  const data = res.content;
-  return JSON.parse(data);
+  const res = await safeFetch("https://toph-backend.netlify.app/api/leaderboard");
+  const data = res.data;
+  return data;
 }
