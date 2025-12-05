@@ -21,12 +21,18 @@ const ProfileBody = ({ props }) => {
 
   return (
     <div className="mx-1 bg-white p-0.5 text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
-      <img
-        src={`${PHOTO_URL}/${userName}.jpg`}
-        alt={`${userName}'s Profile Picture`}
-        className="m-2 block rounded-lg md:m-4 w-[200px] h-[200px]"
-        fetchPriority="1"
-      />
+      {PHOTO_URL ? (
+        <img
+          src={PHOTO_URL}
+          alt={`${userName}'s Profile Picture`}
+          className="m-2 block h-[200px] w-[200px] rounded-lg border border-gray-200 md:m-4 dark:border-gray-800"
+          fetchPriority="1"
+        />
+      ) : (
+        <div className="m-2 block flex h-[200px]  w-[200px] items-center justify-center rounded-lg bg-blue-500 text-7xl font-bold text-blue-50 md:m-4">
+          {userName[0].toUpperCase()}
+        </div>
+      )}
 
       <div className="m-2 mt-5 text-left font-semibold md:ml-4">
         <Link
@@ -94,7 +100,7 @@ const ProfileBody = ({ props }) => {
                     key={index}
                     href={`https://toph.co/p/${data[selected][index]}`}
                     target="_blank"
-                    className="group pl-2 md:ml-4 ml-1.5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 hover:text-sky-500 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-sky-400"
+                    className="group ml-1.5 flex items-center justify-center gap-2 rounded-md bg-[#d2cbcb] bg-opacity-10 px-3 py-1 pl-2 text-start hover:bg-opacity-15 hover:text-sky-500 md:ml-4 dark:bg-opacity-5 dark:hover:bg-opacity-10 dark:hover:text-sky-400"
                   >
                     {data[selected][index].replace(/-/g, " ")}
                     <svg

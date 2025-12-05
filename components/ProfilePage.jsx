@@ -22,6 +22,7 @@ function ProfilePageContent({ props }) {
   const [selected, setSelected] = useState(props.selected);
   const [userName, setUserName] = useState(props.userName);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
+  document.title = `${userName}'s Profile - Toph Leaderboard`
 
   const router = useRouter();
   const query = useSearchParams().get("q");
@@ -30,8 +31,6 @@ function ProfilePageContent({ props }) {
     if (query) {
       setSelected(query);
     }
-    // set title
-    document.title = `${userName}'s Profile`;
   }, [query, userName]);
 
   useEffect(() => {

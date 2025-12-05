@@ -1,86 +1,59 @@
-import ProfilePage from "@/components/ProfilePage";
-import getUser from "@/helpers/getUser";
-import getLeaderboardData from "@/helpers/getLeaderboardData";
+import UserProfileClient from "@/components/UserProfileClient";
+import safeFetch from "@/helpers/safeFetch";
+
+/**
+ * This version is used ONLY at build time (during generateStaticParams)
+ *
+ * It skips localStorage entirely and always hits the API.
+ */
+async function getLeaderboardDataForBuild() {
+  const Res = await safeFetch("https://toph-backend.netlify.app/api/leaderboard");
+  return Res.data;
+}
 
 export async function generateStaticParams() {
   try {
-    const data = await getLeaderboardData();
+    // During next build, localStorage doesn't exist and cache would be empty anyway
+    // → force a real fetch instead of using the cached helper
+    const Data = await getLeaderboardDataForBuild();
 
-    // Extract all unique usernames from all categories
-    const usernames = new Set();
+    const UserNames = new Set();
 
-    // Add usernames from fastest
-    if (data.fastest) {
-      Object.keys(data.fastest).forEach((username) => usernames.add(username));
+    if (Data.fastest) {
+      Object.keys(Data.fastest).forEach((Name) => UserNames.add(Name));
+    }
+    if (Data.lightest) {
+      Object.keys(Data.lightest).forEach((Name) => UserNames.add(Name));
+    }
+    if (Data.shortest) {
+      Object.keys(Data.shortest).forEach((Name) => UserNames.add(Name));
     }
 
-    // Add usernames from lightest
-    if (data.lightest) {
-      Object.keys(data.lightest).forEach((username) => usernames.add(username));
-    }
 
-    // Add usernames from shortest
-    if (data.shortest) {
-      Object.keys(data.shortest).forEach((username) => usernames.add(username));
-    }
-
-    // Convert to array of objects with userName property
-    return Array.from(usernames).map((username) => ({
-      userName: username,
+    return Array.from(UserNames).map((UserName) => ({
+      userName: UserName,
     }));
-  } catch (error) {
-    console.error("Error generating static params:", error);
-    return [];
+
+  } catch (Error) {
+    console.error("Failed to generate static params for user profiles:", Error);
+    return []; // build will succeed but those pages will 404 until next build
   }
 }
 
+// Keep normal revalidation for ISR when not doing static export
 export const revalidate = 60;
 
-const Page = async (req) => {
-  const { userName } = req.params;
-  try {
-    const userData = await getUser(userName);
+// Optional: keep it dynamic in dev / when not exporting
+// export const dynamic = "force-dynamic"; // uncomment if you never use output: export
 
-    if (!userData.ok) {
-      console.error("API returned error:", userData);
-      return <div className="mt-20">Could not fetch the data</div>;
-    }
+const UserProfilePage = async ({ params }) => {
+  const { userName } = params;
 
-    // Extract the data from the response
-    const [fastest, lightest, shortest] = userData.content;
-    const data = { fastest, lightest, shortest };
-
-    let selected = "shortest";
-
-    if (fastest.length > 0) {
-      selected = "fastest";
-    } else if (lightest.length > 0) {
-      selected = "lightest";
-    } else if (shortest.length > 0) {
-      selected = "shortest";
-    }
-
-    return (
-      <main>
-        <ProfilePage
-          props={{ data, userName, selected, PHOTO_URL: process.env.PHOTO_URL }}
-        />
-      </main>
-    );
-  } catch (error) {
-    // console.error("Unexpected error fetching user data:", error);
-    return (
-      <div className="mt-20">
-        Could not fetch the data - unexpected error
-        <br />
-        { String(error)}
-      </div>
-    );
-  }
+  return (
+    <main>
+      <UserProfileClient userName={userName} />
+    </main>
+  );
 };
 
-export default Page;
-
-export const metadata = {
-  title: "User's Profile",
-};
+export default UserProfilePage;

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 import Table from "@/components/Table";
+import getLeaderboardData from "@/helpers/getLeaderboardData";
 
 const Styles = {
   buttons: {
@@ -15,12 +16,31 @@ const Styles = {
 };
 
 function HomeContent({ props }) {
-  const [data, setData] = useState(props.data);
+  const [data, setData] = useState(null);
   const [selected, setSelected] = useState("fastest");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
 
   const router = useRouter();
   const query = useSearchParams().get("q");
+
+  useEffect(() => {
+    const fetchLeaderboardData = async () => {
+      try {
+        setLoading(true);
+        const leaderboardData = await getLeaderboardData();
+        setData(leaderboardData);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching leaderboard data:", err);
+        setError(`Could not fetch the data: ${String(err)}`);
+        setLoading(false);
+      }
+    };
+
+    fetchLeaderboardData();
+  }, []);
 
   useEffect(() => {
     if (query) {
@@ -31,6 +51,23 @@ function HomeContent({ props }) {
   useEffect(() => {
     router.replace(`?q=${selected}`, undefined, { shallow: true });
   }, [selected, router]);
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center gap-5 text-4xl font-semibold tracking-wider md:text-6xl">
+        <span className="loader h-9 w-9 border-[5px] border-blue-500/80 md:h-12 md:w-12"></span>
+        <span className="opacity-95">Loading...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center gap-5 text-sm font-semibold tracking-wider md:text-xl">
+        <pre className="font-mono">{error}</pre>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-20 md:mt-24">
@@ -70,9 +107,7 @@ function HomeContent({ props }) {
 
 const Home = ({ props }) => {
   return (
-    <Suspense
-      fallback={<></>}
-    >
+    <Suspense fallback={<></>}>
       <HomeContent props={props} />
     </Suspense>
   );
