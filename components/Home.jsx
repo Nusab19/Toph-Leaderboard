@@ -70,9 +70,7 @@ function HomeContent({ props }) {
 
 const Home = ({ props }) => {
   return (
-    <Suspense
-      fallback={<></>}
-    >
+    <Suspense fallback={<div className="min-h-screen"></div>}>
       <HomeContent props={props} />
     </Suspense>
   );
