@@ -77,7 +77,7 @@ function ProfilePageContent({ props }) {
 
 const ProfilePage = ({ props }) => {
   return (
-    <Suspense fallback={<></>}>
+    <Suspense fallback={ <div className="min-h-screen"></div>}>
       <ProfilePageContent props={props} />
     </Suspense>
   );
