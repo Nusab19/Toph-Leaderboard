@@ -1,6 +1,6 @@
 import safeFetch from "@/helpers/safeFetch";
 
-const CacheDurationMs = 5 * 60 * 1000; // 5 minutes
+const CacheDurationMs = 60 * 60 * 1000; // 1 hour
 
 /**
  * Generates unique cache keys for each user

@@ -2,11 +2,11 @@ import safeFetch from "@/helpers/safeFetch";
 
 const CacheKey = "LeaderboardData";
 const CacheTimestampKey = "LeaderboardDataTimestamp";
-const CacheDurationMs = 5 * 60 * 1000; // 5 minutes
+const CacheDurationMs = 60 * 60 * 1000; // 1 hour
 
 /**
  * Retrieves leaderboard data with 5-minute client-side caching.
- * Returns cached data if it exists and is not older than 5 minutes.
+ * Returns cached data if it exists and is not older than 1 hour.
  * Otherwise performs a fresh request and updates the cache.
  */
 export default async function getLeaderboardData() {

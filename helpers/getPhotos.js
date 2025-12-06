@@ -2,7 +2,7 @@ import safeFetch from "@/helpers/safeFetch";
 
 const CacheKey = "ProfilePhotos";
 const CacheTimestampKey = "ProfilePhotosTimestamp";
-const CacheDurationMs = 60 * 60 * 1000; // 1 hour
+const CacheDurationMs = 19 * 60 * 60 * 1000; // 19 hour
 
 export default async function getPhotos() {
   // Try to get cached data and its timestamp
