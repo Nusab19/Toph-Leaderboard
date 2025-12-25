@@ -51,13 +51,6 @@ function ProfilePageContent({ props }) {
         { key: "f", action: () => handleSelect("fastest"), runOnInput: false },
         { key: "l", action: () => handleSelect("lightest"), runOnInput: false },
         { key: "s", action: () => handleSelect("shortest"), runOnInput: false },
-        {
-          key: "ctrl+backspace",
-          action: () => router.push("/"),
-          runOnInput: false,
-        },
-        { key: "backspace", action: () => router.back(), runOnInput: false },
-        { key: "alt+backspace", action: () => router.back(), runOnInput: false },
       ],
       [router],
     ),
