@@ -21,7 +21,7 @@ const ShortcutModal = () => {
       items: [
         { key: "← / →", desc: "Prev / Next Page" },
         { key: "Backspace", desc: "Go Back" },
-        { key: "Ctrl + Bksp", desc: "Home Page" },
+        { key: "Ctrl + Backspace", desc: "Home Page" },
       ],
     },
     {
