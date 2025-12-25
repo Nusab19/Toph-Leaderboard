@@ -1,6 +1,6 @@
 import safeFetch from "@/helpers/safeFetch";
 
-const CacheDurationMs = 60 * 60 * 1000; // 1 hour
+const CacheDurationMs =  60 * 1000; // 1 minute
 
 function getCacheKey(UserName) { return `UserData_${UserName}`; }
 function getTimestampKey(UserName) { return `UserDataTimestamp_${UserName}`; }

@@ -1,14 +1,40 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import UserProfileClient from "@/components/UserProfileClient";
+import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 
 function UserProfileLoader() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const userName = searchParams.get("id");
   const [inputValue, setInputValue] = useState("");
+
+  // Keyboard Handlers
+  useKeyboardShortcut(
+    useMemo(
+      () => [
+        {
+          key: "ctrl+backspace",
+          action: () => router.push("/"),
+          runOnInput: false,
+        },
+        { key: "backspace", action: () => router.back(), runOnInput: false },
+        {
+          key: "alt+backspace",
+          action: () => router.back(),
+          runOnInput: false,
+        },
+        {
+          key: "escape",
+          action: () => document.activeElement.blur(),
+          runOnInput: true,
+        },
+      ],
+      [router],
+    ),
+  );
 
   const navigateToUser = (e) => {
     e.preventDefault();
@@ -48,15 +74,19 @@ function UserProfileLoader() {
             />
             <button
               type="submit"
-              className="w-full rounded-lg bg-blue-600 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 active:bg-blue-800 transition-colors"
+              className="w-full rounded-lg bg-blue-600 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800"
             >
               Go
             </button>
           </form>
 
           <div className="mt-4 text-[11px] leading-relaxed text-gray-500 dark:text-gray-400">
-            <p className="font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">Accepted Formats:</p>
-            <p>Username or profile link (e.g., <code>toph.co/u/username</code>)</p>
+            <p className="font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
+              Accepted Formats:
+            </p>
+            <p>
+              Username or profile link (e.g., <code>toph.co/u/username</code>)
+            </p>
           </div>
         </div>
       </div>
@@ -71,7 +101,7 @@ const UserProfilePage = () => {
     <main>
       <Suspense
         fallback={
-          <div className="flex min-h-screen items-center justify-center gap-5 text-4xl font-semibold tracking-wider md:text-6xl text-gray-800 dark:text-gray-200">
+          <div className="flex min-h-screen items-center justify-center gap-5 text-4xl font-semibold tracking-wider text-gray-800 md:text-6xl dark:text-gray-200">
             <span className="loader h-9 w-9 border-[5px] border-blue-500/80 md:h-12 md:w-12"></span>
             <span className="opacity-95">Loading...</span>
           </div>

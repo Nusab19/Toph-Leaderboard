@@ -2,7 +2,7 @@ import safeFetch from "@/helpers/safeFetch";
 
 const CacheKey = "LeaderboardData";
 const CacheTimestampKey = "LeaderboardDataTimestamp";
-const CacheDurationMs = 60 * 60 * 1000; // 1 hour
+const CacheDurationMs = 60 * 1000; // 1 minute
 
 export default async function getLeaderboardData(onUpdate) {
   const CachedData = localStorage.getItem(CacheKey);
