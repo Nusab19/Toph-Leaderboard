@@ -47,7 +47,7 @@ async function generateSitemap() {
     xml += `\n</urlset>`;
 
     // 4. Ensure 'out' directory exists and write file
-    const outDir = "../public/";
+    const outDir = "public/";
     if (!fs.existsSync(outDir)) {
       fs.mkdirSync(outDir);
     }
