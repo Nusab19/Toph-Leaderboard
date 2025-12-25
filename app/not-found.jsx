@@ -1,7 +1,5 @@
-"use client";
-import { useMemo } from "react";
+"use client"
 import { useRouter } from "next/navigation";
-import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 
 const Styles = {
   button:
@@ -11,21 +9,7 @@ const Styles = {
 };
 
 export default function NotFound() {
-  const router = useRouter();
-
-  useKeyboardShortcut(
-    useMemo(
-      () => [
-        {
-          key: "h",
-          action: () => router.push("/"),
-          runOnInput: false,
-        },
-      ],
-      [router],
-    ),
-  );
-
+  const router = useRouter()
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
       <h1 className="text-7xl font-bold tracking-tight text-[#3598dc] min-[320px]:text-8xl md:text-9xl">

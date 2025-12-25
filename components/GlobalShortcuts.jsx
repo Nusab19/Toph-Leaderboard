@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 import { useMemo } from "react";
 import { useRouter } from "next/navigation"; // Missing import
@@ -10,6 +10,11 @@ export default function GlobalShortcuts() {
   useKeyboardShortcut(
     useMemo(
       () => [
+        {
+          key: "h",
+          action: () => router.push("/"),
+          runOnInput: false,
+        },
         {
           key: "ctrl+backspace",
           action: () => router.push("/"),
