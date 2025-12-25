@@ -1,30 +1,20 @@
 import { Suspense } from "react";
 import UserProfileClient from "@/components/UserProfileClient";
-import safeFetch from "@/helpers/safeFetch";
 
+// We provide a dummy param so Next.js builds the route structure.
+// In production, your _redirects file will point all usernames to this file.
 export async function generateStaticParams() {
-  try {
-    const Res = await safeFetch("https://toph-backend.netlify.app/api/leaderboard");
-    const Data = Res.data;
-    const UserNames = new Set();
-
-    ["fastest", "lightest", "shortest"].forEach((key) => {
-      if (Data[key]) {
-        Object.keys(Data[key]).forEach((name) => UserNames.add(name));
-      }
-    });
-
-    UserNames.delete("Nusab19");
-
-    return Array.from(UserNames).map((userName) => ({ userName }));
-  } catch (error) {
-    console.error("Static params failed:", error);
-    return [];
-  }
+  return [{ userName: ["_placeholder"] }];
 }
 
 const UserProfilePage = async ({ params }) => {
-  const { userName } = await params;
+  const resolvedParams = await params;
+
+  // Extract username. If it's our placeholder or missing, the client
+  // component will handle the logic/fetching.
+  const userName = Array.isArray(resolvedParams.userName)
+    ? resolvedParams.userName[0]
+    : resolvedParams.userName;
 
   return (
     <main>
