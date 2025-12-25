@@ -1,9 +1,13 @@
 import safeFetch from "@/helpers/safeFetch";
 
-const CacheDurationMs =  60 * 1000; // 1 minute
+const CacheDurationMs = 60 * 1000; // 1 minute
 
-function getCacheKey(UserName) { return `UserData_${UserName}`; }
-function getTimestampKey(UserName) { return `UserDataTimestamp_${UserName}`; }
+function getCacheKey(UserName) {
+  return `UserData_${UserName}`;
+}
+function getTimestampKey(UserName) {
+  return `UserDataTimestamp_${UserName}`;
+}
 
 export default async function getUser(UserName, onUpdate) {
   if (!UserName) throw new Error("UserName is required");
@@ -14,15 +18,31 @@ export default async function getUser(UserName, onUpdate) {
   const CachedTimestamp = localStorage.getItem(TimestampKey);
   const Now = Date.now();
 
-  const isExpired = !CachedTimestamp || Now - Number(CachedTimestamp) > CacheDurationMs;
+  const isExpired =
+    !CachedTimestamp || Now - Number(CachedTimestamp) > CacheDurationMs;
 
   const fetchAndSave = async () => {
     try {
-      const Res = await safeFetch(`https://toph-backend.netlify.app/api/getUser?userName=${UserName}`);
+      const Res = await safeFetch(
+        `https://toph-backend.netlify.app/api/getUser?userName=${UserName}`,
+      );
       const FreshData = Res.data;
 
-      localStorage.setItem(CacheKey, JSON.stringify(FreshData));
-      localStorage.setItem(TimestampKey, String(Date.now()));
+      const isEmptyArrayOfArrays =
+        Array.isArray(FreshData.content) &&
+        FreshData.content.length === 3 &&
+        FreshData.content.every(
+          (subArray) => Array.isArray(subArray) && subArray.length === 0,
+        );
+
+      if (!isEmptyArrayOfArrays) {
+        localStorage.setItem(CacheKey, JSON.stringify(FreshData));
+        localStorage.setItem(TimestampKey, String(Date.now()));
+      } else {
+        console.log(
+          `${UserName}'s data is full empty. Not saving in localStorage`,
+        );
+      }
 
       if (onUpdate) onUpdate(FreshData);
       return FreshData;

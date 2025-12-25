@@ -48,7 +48,8 @@ export default function UserProfileClient({ userName }) {
         // Selection Logic
         if (!query) {
           if (initialProcessed.fastest.length > 0) setSelected("fastest");
-          else if (initialProcessed.lightest.length > 0) setSelected("lightest");
+          else if (initialProcessed.lightest.length > 0)
+            setSelected("lightest");
           else setSelected("shortest");
         } else {
           setSelected(query);
@@ -61,7 +62,6 @@ export default function UserProfileClient({ userName }) {
         });
 
         if (initialPhotos.ok) setPhotos(initialPhotos);
-
       } catch (err) {
         setError(`Could not fetch the data: ${String(err)}`);
       } finally {
