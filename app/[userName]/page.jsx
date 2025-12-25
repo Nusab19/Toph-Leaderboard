@@ -14,6 +14,8 @@ export async function generateStaticParams() {
       }
     });
 
+    UserNames.delete("Nusab19");
+
     return Array.from(UserNames).map((userName) => ({ userName }));
   } catch (error) {
     console.error("Static params failed:", error);
