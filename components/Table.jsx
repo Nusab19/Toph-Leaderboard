@@ -46,7 +46,7 @@ const Table = ({ props }) => {
         runOnInput: false,
         action: () => {
           const targetUser = userNames[displayNum - 1];
-          if (targetUser) router.push(`/${targetUser}?q=${selected}`);
+          if (targetUser) router.push(`/user?id=${targetUser}&q=${selected}`);
         },
       });
 
@@ -56,7 +56,7 @@ const Table = ({ props }) => {
         runOnInput: false,
         action: () => {
           const targetUser = userNames[ctrlDisplayNum - 1];
-          if (targetUser) router.push(`/${targetUser}?q=${selected}`);
+          if (targetUser) router.push(`/user?id=${targetUser}&q=${selected}`);
         },
       });
     }
@@ -112,7 +112,7 @@ const Table = ({ props }) => {
                 <td className="flex items-center">
                   <div className="w-5 px-6 py-4">{index + 1}</div>
                   <Link
-                    href={`/${userName}?q=${selected}`}
+                    href={`/user?id=${userName}&q=${selected}`}
                     className={
                       "ml-5 rounded-md bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 dark:bg-opacity-5 dark:hover:bg-opacity-10 " +
                       (index < 5 ? colors[index + 1] : "bg-[#d2cbcb]")
