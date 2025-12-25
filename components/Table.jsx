@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useMemo } from "react";
+import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 
 import "@/helpers/stringMethods"; // String.prototype.capitalize() & String.prototype.titleCase()
 import icons from "@/helpers/icons";
@@ -26,6 +29,42 @@ const colors = {
 
 const Table = ({ props }) => {
   const { data, selected } = props;
+  const router = useRouter();
+  const userNames = useMemo(() => Object.keys(data[selected]), [data, selected]);
+
+  const shortcuts = useMemo(() => {
+    const list = [];
+
+    // Keys 1-9 and 0
+    for (let i = 0; i <= 9; i++) {
+      const displayNum = i === 0 ? 10 : i; // 1-9, 0=10
+      const ctrlDisplayNum = i === 0 ? 20 : i + 10; // ctrl 1-9=11-19, ctrl 0=20
+
+      // Normal numeric keys (1-10)
+      list.push({
+        key: `${i}`,
+        runOnInput: false,
+        action: () => {
+          const targetUser = userNames[displayNum - 1];
+          if (targetUser) router.push(`/${targetUser}?q=${selected}`);
+        },
+      });
+
+      // Ctrl + numeric keys (11-20)
+      list.push({
+        key: `ctrl+${i}`,
+        runOnInput: false,
+        action: () => {
+          const targetUser = userNames[ctrlDisplayNum - 1];
+          if (targetUser) router.push(`/${targetUser}?q=${selected}`);
+        },
+      });
+    }
+
+    return list;
+  }, [userNames, selected, router]);
+
+  useKeyboardShortcut(shortcuts);
 
   return (
     <div className="mx-1 overflow-x-auto bg-white text-[#2f353b] shadow-md sm:rounded-lg md:mx-5 dark:bg-gray-800/30 dark:text-gray-100">
@@ -64,7 +103,7 @@ const Table = ({ props }) => {
         </thead>
 
         <tbody className="divide-y-2 divide-gray-200 dark:divide-gray-700">
-          {Object.keys(data[selected]).map((userName, index) => {
+          {userNames.map((userName, index) => {
             return (
               <tr
                 key={index}
@@ -73,7 +112,6 @@ const Table = ({ props }) => {
                 <td className="flex items-center">
                   <div className="w-5 px-6 py-4">{index + 1}</div>
                   <Link
-                    key={index}
                     href={`/${userName}?q=${selected}`}
                     className={
                       "ml-5 rounded-md bg-opacity-10 px-3 py-1 text-start hover:bg-opacity-15 dark:bg-opacity-5 dark:hover:bg-opacity-10 " +

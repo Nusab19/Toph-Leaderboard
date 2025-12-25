@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useQueryState } from "nuqs";
 
@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import ProfileBody from "@/components/ProfileBody";
 import icons from "@/helpers/icons";
+import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 
 const Styles = {
   buttons: {
@@ -18,42 +19,51 @@ const Styles = {
 };
 
 function ProfilePageContent({ props }) {
+  const router = useRouter();
   const [data, setData] = useState(props.data);
   // Keep selected state local for immediate UI updates
   const [selected, setSelected] = useState(props.selected);
   const [userName, setUserName] = useState(props.userName);
   const classes = [Styles.buttons.active, Styles.buttons.inactive];
-  document.title = `${userName}'s Profile - Toph Leaderboard`;
 
-  // Use this to read the 'q' query parameter
-  const [query, setQuery] = useQueryState("q", { defaultValue: "fastest" });
-
-  // 1. **Keep this useEffect:** This ensures the local 'selected' state
-  //    is updated when the URL query 'q' changes (e.g., from a back/forward button).
   useEffect(() => {
-    // We only need to check if query is different from selected to prevent state update on every render
+    document.title = `${userName}'s Profile - Toph Leaderboard`;
+  }, [userName]);
+
+  // Set defaultValue to null so that "shortest" is treated as an explicit value in the URL
+  const [query, setQuery] = useQueryState("q");
+
+  useEffect(() => {
     if (query && query !== selected) {
       setSelected(query);
     }
-  }, [query]); // Removed 'userName' as it's not needed here
-
-  // 2. **Removed the recursive useEffect:**
-  // The 'useEffect' that called `setQuery(selected)` is what caused the loop.
-  // We will now update both state AND query in the button handlers.
+  }, [query]);
 
   const handleSelect = (value) => {
-    setSelected(value); // Update local state for immediate UI/component prop change
-    setQuery(value); // Update URL query parameter
+    setSelected(value);
+    setQuery(value);
   };
+
+  // Keyboard Handlers
+  useKeyboardShortcut(
+    useMemo(
+      () => [
+        { key: "f", action: () => handleSelect("fastest"), runOnInput: false },
+        { key: "l", action: () => handleSelect("lightest"), runOnInput: false },
+        { key: "s", action: () => handleSelect("shortest"), runOnInput: false },
+        {
+          key: "ctrl+backspace",
+          action: () => router.push("/"),
+          runOnInput: false,
+        },
+        { key: "backspace", action: () => router.back(), runOnInput: false },
+      ],
+      [router],
+    ),
+  );
 
   return (
     <div className="mt-24">
-      {/* <Link
-        href={`/?q=${selected}`}
-        className="mx-1 flex w-fit items-center gap-2 rounded-md bg-[#3598dc] px-4 py-3 text-lg text-[#e7ecf1] transition duration-100 ease-in-out hover:bg-[#3587bd] md:mx-5 dark:bg-[#2283c3] dark:hover:bg-[#3599dc88]"
-      >
-        {icons.goback} Go Back
-      </Link> */}
       <div className="mx-1 mb-5 mt-10 flex gap-3 md:mx-5">
         <button
           type="button"

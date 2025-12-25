@@ -6,6 +6,7 @@ import { Ubuntu } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ShortcutModal from "@/components/ShortcutModal";
 
 const inter = Ubuntu({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
         >
           <Navbar />
           <NuqsAdapter>{children}</NuqsAdapter>
+          <ShortcutModal />
           <Footer />
         </ThemeProvider>
       </body>
