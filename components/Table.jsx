@@ -50,9 +50,9 @@ const Table = ({ props }) => {
         },
       });
 
-      // Ctrl + numeric keys (11-20)
+      // alt + numeric keys (11-20)
       list.push({
-        key: `ctrl+${i}`,
+        key: `alt+${i}`,
         runOnInput: false,
         action: () => {
           const targetUser = userNames[ctrlDisplayNum - 1];

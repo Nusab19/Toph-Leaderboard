@@ -28,7 +28,7 @@ const ShortcutModal = () => {
       title: "Quick Selection",
       items: [
         { key: "1 - 9, 0", desc: "Go to `n`th User" },
-        { key: "Ctrl + 1, 0", desc: "Jump to `10+n`th User" },
+        { key: "Alt + 1, 0", desc: "Jump to `10+n`th User" },
       ],
     },
     {
@@ -121,8 +121,8 @@ const ShortcutModal = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 px-6 py-3 text-center text-[11px] text-gray-400 dark:bg-gray-800/30 border-t border-gray-100 dark:border-gray-800">
-          Here <span className="font-bold text-gray-500">0</span> means the <span className="font-bold text-gray-500">10th</span> user.
+        <div className="tracking-wider bg-gray-50 px-6 py-3 text-center text-[11px] text-gray-400 dark:bg-gray-800/30 border-t border-gray-100 dark:border-gray-800">
+          Here <span className="font-bold text-gray-500 dark:text-gray-300">0</span> means the <span className="font-bold text-gray-500 dark:text-gray-300">10th</span> user
         </div>
       </div>
     </div>

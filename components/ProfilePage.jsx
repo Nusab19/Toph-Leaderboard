@@ -57,6 +57,7 @@ function ProfilePageContent({ props }) {
           runOnInput: false,
         },
         { key: "backspace", action: () => router.back(), runOnInput: false },
+        { key: "alt+backspace", action: () => router.back(), runOnInput: false },
       ],
       [router],
     ),

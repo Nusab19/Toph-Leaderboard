@@ -67,7 +67,6 @@ function HomeContent({ props }) {
     { key: "f", action: () => setSelected("fastest"), runOnInput: false },
     { key: "l", action: () => setSelected("lightest"), runOnInput: false },
     { key: "s", action: () => setSelected("shortest"), runOnInput: false },
-    { key: "ctrl+.", action: () => console.log("Secret shortcut!"), runOnInput: true }
   ], [setSelected]));
 
   // Prevent rendering anything that relies on localStorage until hydrated
