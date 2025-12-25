@@ -1,40 +1,14 @@
 "use client";
 
-import { Suspense, useState, useMemo } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import UserProfileClient from "@/components/UserProfileClient";
-import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 
 function UserProfileLoader() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const userName = searchParams.get("id");
   const [inputValue, setInputValue] = useState("");
-
-  // Keyboard Handlers
-  useKeyboardShortcut(
-    useMemo(
-      () => [
-        {
-          key: "ctrl+backspace",
-          action: () => router.push("/"),
-          runOnInput: false,
-        },
-        { key: "backspace", action: () => router.back(), runOnInput: false },
-        {
-          key: "alt+backspace",
-          action: () => router.back(),
-          runOnInput: false,
-        },
-        {
-          key: "escape",
-          action: () => document.activeElement.blur(),
-          runOnInput: true,
-        },
-      ],
-      [router],
-    ),
-  );
 
   const navigateToUser = (e) => {
     e.preventDefault();
