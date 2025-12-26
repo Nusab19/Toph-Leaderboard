@@ -20,12 +20,19 @@ export default function GlobalShortcuts() {
           action: () => router.push("/"),
           runOnInput: false,
         },
-        { key: "backspace", action: () => router.back(), runOnInput: false },
-        {
-          key: "alt+backspace",
-          action: () => router.back(),
-          runOnInput: false,
-        },
+          // backspace -> back (only if not already at home)
+  useHotkeys("backspace", (e) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.back();
+    }
+  });
+  useHotkeys("alt+backspace", (e) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.back();
+    }
+  });
         {
           key: "escape",
           action: () => document.activeElement.blur(),
