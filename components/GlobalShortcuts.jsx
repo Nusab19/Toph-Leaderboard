@@ -1,10 +1,11 @@
 "use client";
 import useKeyboardShortcut from "@/hooks/useKeyboardShortcut";
 import { useMemo } from "react";
-import { useRouter } from "next/navigation"; // Missing import
+import { useRouter, usePathname } from "next/navigation"; // Missing import
 
 export default function GlobalShortcuts() {
   const router = useRouter(); // Missing declaration
+  const pathname = usePathname();
 
   // Keyboard Handlers
   useKeyboardShortcut(
@@ -36,7 +37,7 @@ export default function GlobalShortcuts() {
           runOnInput: true,
         },
       ],
-      [router], // router must be in dependencies
+      [router, pathname], // router must be in dependencies
     ),
   );
 
